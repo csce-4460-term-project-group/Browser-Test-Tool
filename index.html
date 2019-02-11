@@ -3,53 +3,58 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" style="height:100%;">
 
 <head>
-    <meta charset="utf-8"/>
-    <title>Browser Test Tool</title>
-    <style>
-    .tab-html {
-	    background-color:#000080;
-	    color:#FFFFFF;
-	    border:none;
-    }
-    .tab-html:hover {
-	    background-color:#0000FF;
-	    cursor:pointer;
-    }
-	.tab-html-content {
-        background-color:#000080;
-        width:100%;
-        height:100%;
-        display:block;
-    }
-    .tab-css {
-    	background-color:#008000;
-	    color:#FFFFFF;
-    	border:none;
-    }
-    .tab-css:hover {
-    	background-color:#00FF00;
-	    cursor:pointer;
-    }
-    .tab-css-content {
-        background-color:#008000;
-        width:100%;
-        height:100%;
-        display:none;
-    }
-    </style>
+	<meta charset="utf-8" />
+	<title>Browser Test Tool</title>
+	<style>
+		.tab-html {
+			background-color: #000080;
+			color: #FFFFFF;
+			border: none;
+		}
+
+			.tab-html:hover {
+				background-color: #0000FF;
+				cursor: pointer;
+			}
+
+		.tab-html-content {
+			background-color: #000080;
+			width: 100%;
+			height: 100%;
+			display: block;
+		}
+
+		.tab-css {
+			background-color: #008000;
+			color: #FFFFFF;
+			border: none;
+		}
+
+			.tab-css:hover {
+				background-color: #00FF00;
+				cursor: pointer;
+			}
+
+		.tab-css-content {
+			background-color: #008000;
+			width: 100%;
+			height: 100%;
+			display: none;
+		}
+	</style>
 </head>
 
 <body style="height:100%;">
 	<h1>Browser Test Tool</h1>
 	<div>
 		<button class="tab-html" onclick="changeTab1()">HTML</button>
-	    <button class="tab-css" onclick="changeTab2()">CSS</button>
+		<button class="tab-css" onclick="changeTab2()">CSS</button>
 	</div>
 	<div class="tab-html-content" id="tab-html-content">
-	    <button>Run HTML Test</button>
+		<button>Run HTML Test</button>
 	</div>
 	<div class="tab-css-content" id="tab-css-content">
-	    <button>Run CSS Test</button>
+		<button>Run CSS Test</button>
 	</div>
 	<script>
 		function changeTab1() {
