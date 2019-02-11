@@ -46,7 +46,7 @@
 
 <body style="height:100%;">
 	<h1>Browser Test Tool</h1>
-	<button onclick="runTests()">Run Tests</button>
+	<button onclick="runTests(this)">Run Tests</button>
 	<div>
 		<button class="tab-html" onclick="changeTab1()">HTML</button>
 		<button class="tab-css" onclick="changeTab2()">CSS</button>
@@ -64,8 +64,8 @@
 			document.getElementById("tab-html-content").style.display = "none";
 			document.getElementById("tab-css-content").style.display = "block";
 		}
-		function runTests() {
-
+		function runTests(button) {
+			button.disabled = true;
 		}
 	</script>
 </body>
