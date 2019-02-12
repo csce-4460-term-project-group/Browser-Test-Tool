@@ -3,39 +3,44 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" style="height:100%;">
 
 <head>
-	<meta charset="utf-8" />
-	<title>Browser Test Tool</title>
-	<link href="/Browser-Test-Tool/styles/tab.css" rel="stylesheet" type="text/css" />
+    <meta charset="utf-8" />
+    <title>Browser Test Tool</title>
+    <link href="/Browser-Test-Tool/styles/tab.css" rel="stylesheet" type="text/css" />
+    <style>
+        * {
+            font-family: monospace;
+        }
+    </style>
 </head>
 
 <body style="height:100%;">
-	<h1>Browser Test Tool</h1>
-	<button onclick="runTests(this)">Run Tests</button>
-	<div>
-		<button class="tab-html" onclick="changeTab1()">HTML</button>
-		<button class="tab-css" onclick="changeTab2()">CSS</button>
-	</div>
-	<div class="tab-html-content" id="tab-html-content">
-	</div>
-	<div class="tab-css-content" id="tab-css-content">
-	</div>
-	<script src="/Browser-Test-Tool/tests/TestPrototype.js"></script>
-	<script src="/Browser-Test-Tool/tests/TestHTML5Elements.js"></script>
-	<script>
-		function changeTab1() {
-			document.getElementById("tab-html-content").style.display = "block";
-			document.getElementById("tab-css-content").style.display = "none";
-		}
-		function changeTab2() {
-			document.getElementById("tab-html-content").style.display = "none";
-			document.getElementById("tab-css-content").style.display = "block";
-		}
-		function runTests(button) {
-			button.disabled = true;
-			var tests = [];
-			tests.push(TestHTML5Elements());
-		}
-	</script>
+    <h1>Browser Test Tool</h1>
+    <button onclick="runTests(this)">Run Tests</button>
+    <div>
+        <button class="tab-html" onclick="changeTab1()">HTML</button>
+        <button class="tab-css" onclick="changeTab2()">CSS</button>
+    </div>
+    <div class="tab-html-content" id="tab-html-content">
+    </div>
+    <div class="tab-css-content" id="tab-css-content">
+    </div>
+    <script src="/Browser-Test-Tool/tests/TestPrototype.js"></script>
+    <script src="/Browser-Test-Tool/tests/TestHTML5Elements.js"></script>
+    <script>
+        function changeTab1() {
+            document.getElementById("tab-html-content").style.display = "block";
+            document.getElementById("tab-css-content").style.display = "none";
+        }
+        function changeTab2() {
+            document.getElementById("tab-html-content").style.display = "none";
+            document.getElementById("tab-css-content").style.display = "block";
+        }
+        function runTests(button) {
+            button.disabled = true;
+            var tests = [];
+            tests.push(TestHTML5Elements());
+        }
+    </script>
 </body>
 
 </html>
