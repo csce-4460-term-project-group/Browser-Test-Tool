@@ -9,5 +9,6 @@ function TestHTML5Elements() {
 		else
 			test.results.push(true);
 	}
+	console.log("Test Complete");
 	return test;
 }
