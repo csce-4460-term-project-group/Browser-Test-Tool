@@ -1,0 +1,33 @@
+﻿.tab-html {
+	background-color: #AAAAAA;
+	border: none;
+}
+
+	.tab-html:hover {
+		background-color: #AAAAAA;
+		cursor: pointer;
+	}
+
+.tab-html-content {
+	background-color: #AAAAAA;
+	width: 100%;
+	height: 100%;
+	display: block;
+}
+
+.tab-css {
+	background-color: #777777;
+	border: none;
+}
+
+	.tab-css:hover {
+		background-color: #777777;
+		cursor: pointer;
+	}
+
+.tab-css-content {
+	background-color: #777777;
+	width: 100%;
+	height: 100%;
+	display: none;
+}
