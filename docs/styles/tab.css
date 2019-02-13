@@ -6,7 +6,6 @@
 
     .tab-html:hover {
         background-color: #0000FF;
-        cursor: pointer;
     }
 
 .tab-html-content {
@@ -24,7 +23,6 @@
 
     .tab-css:hover {
         background-color: #00FF00;
-        cursor: pointer;
     }
 
 .tab-css-content {
