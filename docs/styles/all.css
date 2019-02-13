@@ -1,0 +1,11 @@
+﻿* {
+    font-family: monospace;
+}
+
+button {
+    font-size: xx-large;
+}
+
+    button:hover {
+        cursor: pointer;
+    }
