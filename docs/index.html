@@ -42,7 +42,7 @@
                     if (tests[i].results[j])
                         testsPassed++;
                 var div1 = document.createElement("div");
-                div1.className = "test-results";
+                div1.setAttribute("class", "test-results");
                 var button = document.createElement("button");
                 var title = document.createElement("span");
                 title.style.cssFloat = "left";
@@ -57,7 +57,6 @@
                 button.onclick = function () { expandOrCollapseTestResults(this.span, this.title); };
                 div1.appendChild(button);
                 document.getElementById("tab-html-content").appendChild(div1);
-                button.className = "test-results-button";
             }
         }
         function expandOrCollapseTestResults(span, title) {
