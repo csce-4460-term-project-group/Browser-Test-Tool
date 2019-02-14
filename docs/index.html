@@ -44,10 +44,10 @@
                 div1.className = "test-results";
                 var button = document.createElement("button");
                 var title = document.createElement("span");
-                title.style.cssFloat = left;
+                title.style.cssFloat = "left";
                 title.textContent = "&#x23F5" + tests[i].title;
                 var score = document.createElement("span");
-                score.style.cssFloat = right;
+                score.style.cssFloat = "right";
                 score.textContent = testsPassed + "/" + tests[i].results.length;
                 button.appendChild(title);
                 button.appendChild(score);
