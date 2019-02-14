@@ -54,7 +54,7 @@
                 button.style.display = "block";
                 var title = document.createElement("span");
                 title.style.cssFloat = "left";
-                title.textContent = "\u25B7" + tests[i].title;
+                title.textContent = "\u25B8" + tests[i].title;
                 var score = document.createElement("span");
                 score.style.cssFloat = "right";
                 score.textContent = testsPassed + "/" + tests[i].results.length;
@@ -83,6 +83,7 @@
                 button.appendChild(title);
                 button.appendChild(score);
                 button.span = title;
+                button.span = title;
                 button.title = tests[i].title;
                 button.div = div2;
                 button.onclick = function () { expandOrCollapseTestResults(this.span, this.title, this.div); };
@@ -93,12 +94,12 @@
         }
         function expandOrCollapseTestResults(span, title, div) {
             var triangle = span.textContent;
-            if (triangle.indexOf("\u25B7") == 0) {
-                span.textContent = "\u25BD" + title;
+            if (triangle.indexOf("\u25B8") == 0) {
+                span.textContent = "\u25BE" + title;
                 div.style.display = "block";
             }
             else {
-                span.textContent = "\u25B7" + title;
+                span.textContent = "\u25B8" + title;
                 div.style.display = "none";
             }
         }
