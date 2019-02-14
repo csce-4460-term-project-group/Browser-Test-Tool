@@ -52,7 +52,9 @@
                 score.textContent = testsPassed + "/" + tests[i].results.length;
                 button.appendChild(title);
                 button.appendChild(score);
-                button.onclick = expandOrCollapseTestResults(title, tests[i].title);
+                button.span = title;
+                button.title = tests[i].title;
+                button.onclick = function () { expandOrCollapseTestResults(this.span, this.title); };
                 div1.appendChild(button);
                 document.getElementById("tab-html-content").appendChild(div1);
             }
