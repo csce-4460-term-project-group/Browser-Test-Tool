@@ -52,14 +52,14 @@
                 score.textContent = testsPassed + "/" + tests[i].results.length;
                 button.appendChild(title);
                 button.appendChild(score);
-                button.onclick = function () { expandOrCollapseTestResults(title, tests[i].title); };
+                button.onclick = expandOrCollapseTestResults(title, tests[i].title);
                 div1.appendChild(button);
                 document.getElementById("tab-html-content").appendChild(div1);
             }
         }
         function expandOrCollapseTestResults(span, title) {
             var triangle = span.textContent;
-            if (triangle.indexOf(0) == "&#x23F5;")
+            if (triangle.indexOf("&#x23F5;") == 0)
                 span.textContent = "&#x23F7;" + title;
             else
                 span.textContent = "&#x23F5;" + title;
