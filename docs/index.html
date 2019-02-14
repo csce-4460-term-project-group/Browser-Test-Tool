@@ -52,6 +52,8 @@
                 button.appendChild(title);
                 button.appendChild(score);
                 button.onclick = function () { expandOrCollapseTestResults(title, tests[i].title); };
+                div1.appendChild(button);
+                document.getElementById("tab-html-content").appendChild(div1);
             }
         }
         function expandOrCollapseTestResults(span, title) {
