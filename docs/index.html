@@ -7,6 +7,7 @@
     <title>Browser Test Tool</title>
     <link href="/Browser-Test-Tool/styles/all.css" rel="stylesheet" type="text/css" />
     <link href="/Browser-Test-Tool/styles/tab.css" rel="stylesheet" type="text/css" />
+    <link href="/Browser-Test-Tool/styles/test-results.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body style="height:100%;">
@@ -45,7 +46,7 @@
                 var button = document.createElement("button");
                 var title = document.createElement("span");
                 title.style.cssFloat = "left";
-                title.textContent = "&#x23F5" + tests[i].title;
+                title.textContent = "&#x23F5;" + tests[i].title;
                 var score = document.createElement("span");
                 score.style.cssFloat = "right";
                 score.textContent = testsPassed + "/" + tests[i].results.length;
@@ -58,7 +59,7 @@
         }
         function expandOrCollapseTestResults(span, title) {
             var triangle = span.textContent;
-            if (triangle.indexOf(0) == "&#x23F5")
+            if (triangle.indexOf(0) == "&#x23F5;")
                 span.textContent = "&#x23F7;" + title;
             else
                 span.textContent = "&#x23F5;" + title;
