@@ -31,8 +31,8 @@
             document.getElementById("tab-html-content").style.display = "none";
             document.getElementById("tab-css-content").style.display = "block";
         }
-        function runTests(button) {
-            button.disabled = true;
+        function runTests(buttonClicked) {
+            buttonClicked.disabled = true;
             var tests = [];
             tests.push(TestHTML5Elements());
             for (var i = 0; i < tests.length; i++) {
@@ -40,9 +40,26 @@
                 for (var j = 0; j < tests[i].results.length; j++)
                     if (tests[i].results[j])
                         testsPassed++;
-                document.getElementById("tab-html-content").insertAdjacentHTML("afterbegin", '<div style="width:50%;margin:8pt;"><button style="width:100%;background-color:#3F3FFF;color:#FFFFFF;border:none;padding:0px;margin:0px;display:block;"><span style="float:left;">'
-                    + tests[i].title + '</span><span style="float:right;">' + testsPassed + "/" + tests[i].results.length + '</span></button></div>');
+                var div1 = document.createElement("div");
+                div1.className = "test-results";
+                var button = document.createElement("button");
+                var title = document.createElement("span");
+                title.style.cssFloat = left;
+                title.textContent = "&#x23F5" + tests[i].title;
+                var score = document.createElement("span");
+                score.style.cssFloat = right;
+                score.textContent = testsPassed + "/" + tests[i].results.length;
+                button.appendChild(title);
+                button.appendChild(score);
+                button.onclick = function () { expandOrCollapseTestResults(title, tests[i].title); };
             }
+        }
+        function expandOrCollapseTestResults(span, title) {
+            var triangle = span.textContent;
+            if (triangle.indexOf(0) == "&#x23F5")
+                span.textContent = "&#x23F7;" + title;
+            else
+                span.textContent = "&#x23F5;" + title;
         }
     </script>
 </body>

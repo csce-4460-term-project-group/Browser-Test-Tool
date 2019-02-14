@@ -1,0 +1,21 @@
+﻿test-results {
+    width: 50%;
+    margin: 8pt;
+}
+
+    test-results button {
+        width: 100%;
+        background-color: #3F3FFF;
+        color: #FFFFFF;
+        border: none;
+        padding: 0px;
+        margin: 0px;
+        display: block;
+    }
+
+    test-results div {
+        width: 100%;
+        overflow: auto;
+        background-color: #7F7FFF;
+        color: #FFFFFF;
+    }
