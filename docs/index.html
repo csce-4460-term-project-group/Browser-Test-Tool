@@ -72,6 +72,8 @@
                     var test = div3.cloneNode();
                     var testDescription = testDescriptionTemplate.cloneNode();
                     var testResult = testResultTemplate.cloneNode();
+                    if (!tests[i].results[j])
+                        test.style.backgroundColor = "#FF3F3F";
                     testDescription.textContent = tests[i].testDescriptions[j];
                     testResult.textContent = tests[i].results[j];
                     test.appendChild(testDescription);
