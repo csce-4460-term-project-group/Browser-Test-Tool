@@ -44,7 +44,6 @@
                 var div1 = document.createElement("div");
                 div1.className = "test-results";
                 var button = document.createElement("button");
-                button.className = "test-results-button";
                 var title = document.createElement("span");
                 title.style.cssFloat = "left";
                 title.textContent = "\u25B7" + tests[i].title;
@@ -58,6 +57,7 @@
                 button.onclick = function () { expandOrCollapseTestResults(this.span, this.title); };
                 div1.appendChild(button);
                 document.getElementById("tab-html-content").appendChild(div1);
+                button.className = "test-results-button";
             }
         }
         function expandOrCollapseTestResults(span, title) {
