@@ -42,8 +42,16 @@
                     if (tests[i].results[j])
                         testsPassed++;
                 var div1 = document.createElement("div");
-                div1.setAttribute("class", "test-results");
+                div1.style.width = "50%";
+                div1.style.margin = "8pt";
                 var button = document.createElement("button");
+                button.style.width = "100%";
+                button.style.backgroundColor = "#3F3FFF";
+                button.style.color = "#FFFFFF";
+                button.style.border = "none";
+                button.style.padding = "0px";
+                button.style.margin = "0px";
+                button.style.display = "block";
                 var title = document.createElement("span");
                 title.style.cssFloat = "left";
                 title.textContent = "\u25B7" + tests[i].title;
