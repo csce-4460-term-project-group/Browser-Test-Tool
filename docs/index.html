@@ -58,16 +58,37 @@
                 var score = document.createElement("span");
                 score.style.cssFloat = "right";
                 score.textContent = testsPassed + "/" + tests[i].results.length;
+                var div2 = document.createElement("div");
+                var div3 = document.createElement("div");
+                div3.style.width = "100%";
+                div3.style.overflow = "auto";
+                div3.style.backgroundColor = "#7F7FFF";
+                div3.style.color = "#FFFFFF";
+                var testDescriptionTemplate = document.createElement("span");
+                var testResultTemplate = document.createElement("span");
+                testResult.style.cssFloat = "right";
+                for (var j = 0; j < tests[i].results.length; j++) {
+                    var test = div3.cloneNode();
+                    var testDescription = testDescriptionTemplate.cloneNode();
+                    var testResult = testResultTemplate.cloneNode();
+                    testDescription.textContent = tests[i].testDescriptions[j];
+                    testResult.textContent = tests[i].results[j];
+                    test.appendChild(testDescription);
+                    test.appendChild(testResult);
+                    div2.appendChild(test);
+                }
                 button.appendChild(title);
                 button.appendChild(score);
                 button.span = title;
                 button.title = tests[i].title;
-                button.onclick = function () { expandOrCollapseTestResults(this.span, this.title); };
+                button.div = div2;
+                button.onclick = function () { expandOrCollapseTestResults(this.span, this.title, this.div); };
                 div1.appendChild(button);
+                div1.appendChild(div2);
                 document.getElementById("tab-html-content").appendChild(div1);
             }
         }
-        function expandOrCollapseTestResults(span, title) {
+        function expandOrCollapseTestResults(span, title, div) {
             var triangle = span.textContent;
             if (triangle.indexOf("\u25B7") == 0)
                 span.textContent = "\u25BD" + title;
