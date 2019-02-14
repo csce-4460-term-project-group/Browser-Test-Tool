@@ -59,6 +59,7 @@
                 score.style.cssFloat = "right";
                 score.textContent = testsPassed + "/" + tests[i].results.length;
                 var div2 = document.createElement("div");
+                div2.style.display = "none";
                 var div3 = document.createElement("div");
                 div3.style.width = "100%";
                 div3.style.overflow = "auto";
@@ -66,7 +67,7 @@
                 div3.style.color = "#FFFFFF";
                 var testDescriptionTemplate = document.createElement("span");
                 var testResultTemplate = document.createElement("span");
-                testResult.style.cssFloat = "right";
+                testResultTemplate.style.cssFloat = "right";
                 for (var j = 0; j < tests[i].results.length; j++) {
                     var test = div3.cloneNode();
                     var testDescription = testDescriptionTemplate.cloneNode();
@@ -90,10 +91,14 @@
         }
         function expandOrCollapseTestResults(span, title, div) {
             var triangle = span.textContent;
-            if (triangle.indexOf("\u25B7") == 0)
+            if (triangle.indexOf("\u25B7") == 0) {
                 span.textContent = "\u25BD" + title;
-            else
+                div.style.display = "block";
+            }
+            else {
                 span.textContent = "\u25B7" + title;
+                div.style.display = "none";
+            }
         }
     </script>
 </body>
