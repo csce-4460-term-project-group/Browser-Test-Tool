@@ -46,7 +46,7 @@
                 var button = document.createElement("button");
                 var title = document.createElement("span");
                 title.style.cssFloat = "left";
-                title.textContent = "&#x23F5;" + tests[i].title;
+                title.innerHTML = "&#x23F5;" + tests[i].title;
                 var score = document.createElement("span");
                 score.style.cssFloat = "right";
                 score.textContent = testsPassed + "/" + tests[i].results.length;
@@ -60,9 +60,9 @@
         function expandOrCollapseTestResults(span, title) {
             var triangle = span.textContent;
             if (triangle.indexOf("&#x23F5;") == 0)
-                span.textContent = "&#x23F7;" + title;
+                span.innerHTML = "&#x23F7;" + title;
             else
-                span.textContent = "&#x23F5;" + title;
+                span.innerHTML = "&#x23F5;" + title;
         }
     </script>
 </body>
