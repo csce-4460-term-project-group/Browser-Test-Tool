@@ -35,6 +35,14 @@
             button.disabled = true;
             var tests = [];
             tests.push(TestHTML5Elements());
+            for (var i = 0; i < tests.length; i++) {
+                var testsPassed = 0;
+                for (var j = 0; j < tests[i].results.length; j++)
+                    if (tests[i].results[j])
+                        testsPassed++;
+                document.getElementById("tab-html-content").insertAdjacentHTML("afterbegin", '<div style="width:50%;margin:8pt;"><button style="width:100%;background-color:#3F3FFF;color:#FFFFFF;border:none;padding:0px;margin:0px;display:block;"><span style="float:left;">'
+                    + tests[i].title + '</span><span style="float:right;">' + testsPassed + "/" + tests[i].results.length + '</span></button></div>');
+            }
         }
     </script>
 </body>
