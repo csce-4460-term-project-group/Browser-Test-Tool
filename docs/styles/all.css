@@ -1,4 +1,8 @@
-﻿button {
+﻿* {
+    font-family: monospace;
+}
+
+button {
     font-size: xx-large;
 }
 
