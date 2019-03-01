@@ -97,7 +97,7 @@
         }
         function expandOrCollapseTestResults(span, title, div) {
             var triangle = span.textContent;
-            if (triangle.indexOf("\u25B8") == 0) {
+            if (div.style.display == "none") {
                 span.textContent = "\u25BE" + title;
                 div.style.display = "block";
             }
