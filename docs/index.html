@@ -15,8 +15,8 @@
     <h1>Browser Test Tool</h1>
     <button onclick="runTests(this)">Run Tests</button>
     <div>
-        <button class="tab-html" onclick="changeTab1()">HTML</button>
-        <button class="tab-css" onclick="changeTab2()">CSS</button>
+        <button class="tab-html" id="tab-html-button" onclick="changeTab1()">HTML</button>
+        <button class="tab-css" id="tab-css-button" onclick="changeTab2()">CSS</button>
     </div>
     <div class="tab-html-content" id="tab-html-content">
     </div>
@@ -91,6 +91,9 @@
                 div1.appendChild(div2);
                 document.getElementById("tab-html-content").appendChild(div1);
             }
+            document.getElementById("tab-html-button").style.display = "initial";
+            document.getElementById("tab-css-button").style.display = "initial";
+            document.getElementById("tab-html-content").style.display = "block";
         }
         function expandOrCollapseTestResults(div) {
             if (div.style.display == "none")
