@@ -1,15 +1,15 @@
 ﻿.tab-html {
-    background-color: #000080;
+    background-color: #0D47A1;
     color: #FFFFFF;
     border: none;
 }
 
     .tab-html:hover {
-        background-color: #0000FF;
+        background-color: #0D47A1;
     }
 
 .tab-html-content {
-    background-color: #000080;
+    background-color: #0D47A1;
     width: 100%;
     height: 100%;
     overflow: auto;
@@ -17,17 +17,17 @@
 }
 
 .tab-css {
-    background-color: #008000;
+    background-color: #1B5E20;
     color: #FFFFFF;
     border: none;
 }
 
     .tab-css:hover {
-        background-color: #00FF00;
+        background-color: #1B5E20;
     }
 
 .tab-css-content {
-    background-color: #008000;
+    background-color: #1B5E20;
     width: 100%;
     height: 100%;
     overflow: auto;

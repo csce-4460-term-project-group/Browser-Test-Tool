@@ -8,9 +8,10 @@
     <link href="/Browser-Test-Tool/styles/all.css" rel="stylesheet" type="text/css" />
     <link href="/Browser-Test-Tool/styles/tab.css" rel="stylesheet" type="text/css" />
     <link href="/Browser-Test-Tool/styles/test-results.css" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 </head>
 
-<body style="height:100%;">
+<body>
     <h1>Browser Test Tool</h1>
     <button onclick="runTests(this)">Run Tests</button>
     <div>
@@ -46,10 +47,10 @@
                 div1.style.margin = "8pt";
                 var button = document.createElement("button");
                 button.style.width = "100%";
-                button.style.backgroundColor = "#3F3FFF";
+                button.style.backgroundColor = "#1976D2";
                 button.style.color = "#FFFFFF";
                 button.style.border = "none";
-                button.style.padding = "0px";
+                button.style.padding = "8pt";
                 button.style.margin = "0px";
                 button.style.display = "block";
                 var title = document.createElement("span");
@@ -63,17 +64,19 @@
                 var div3 = document.createElement("div");
                 div3.style.width = "100%";
                 div3.style.overflow = "auto";
-                div3.style.backgroundColor = "#7F7FFF";
+                div3.style.backgroundColor = "#3996D2";
                 div3.style.color = "#FFFFFF";
                 var testDescriptionTemplate = document.createElement("span");
+                testDescriptionTemplate.style.paddingLeft = "8pt";
                 var testResultTemplate = document.createElement("span");
                 testResultTemplate.style.cssFloat = "right";
+                testResultTemplate.style.paddingRight = "8pt";
                 for (var j = 0; j < tests[i].results.length; j++) {
                     var test = div3.cloneNode();
                     var testDescription = testDescriptionTemplate.cloneNode();
                     var testResult = testResultTemplate.cloneNode();
                     if (!tests[i].results[j])
-                        test.style.backgroundColor = "#FF3F3F";
+                        test.style.backgroundColor = "#D34F4F";
                     testDescription.textContent = tests[i].testDescriptions[j];
                     testResult.textContent = tests[i].results[j];
                     test.appendChild(testDescription);
