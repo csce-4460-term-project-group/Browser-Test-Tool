@@ -66,13 +66,13 @@
                     var test = div3.cloneNode();
                     var testDescription = testDescriptionTemplate.cloneNode();
                     var testResult = testResultTemplate.cloneNode();
+                    test.appendChild(testDescription);
+                    test.appendChild(testResult);
+                    div2.appendChild(test);
                     if (!tests[i].results[j])
                         test.style.backgroundColor = "#D34F4F";
                     testDescription.textContent = tests[i].testDescriptions[j];
                     testResult.textContent = tests[i].results[j];
-                    test.appendChild(testDescription);
-                    test.appendChild(testResult);
-                    div2.appendChild(test);
                 }
                 button.appendChild(title);
                 button.appendChild(score);
