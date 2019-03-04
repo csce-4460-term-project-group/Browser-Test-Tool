@@ -17,6 +17,7 @@
     width: 100%;
     background-color: #3996D2;
     color: #FFFFFF;
+    overflow: auto;
 }
 
     .individual-test-results span {
