@@ -60,7 +60,9 @@
                 var div3 = document.createElement("div");
                 div3.classList.toggle("individual-test-results");
                 var testDescriptionTemplate = document.createElement("span");
+                testDescriptionTemplate.classList.toggle("individual-test-results");
                 var testResultTemplate = document.createElement("span");
+                testResultTemplate.classList.toggle("individual-test-results");
                 testResultTemplate.style.cssFloat = "right";
                 for (var j = 0; j < tests[i].results.length; j++) {
                     var test = div3.cloneNode(true);
