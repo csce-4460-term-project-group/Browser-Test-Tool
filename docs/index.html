@@ -47,23 +47,21 @@
                     if (tests[i].results[j])
                         testsPassed++;
                 var div1 = document.createElement("div");
-                document.getElementById("tab-html-content").appendChild(div1);
                 div1.classList.toggle("test-results");
                 var button = document.createElement("button");
-                div1.appendChild(button);
                 var title = document.createElement("span");
-                button.appendChild(title);
                 title.style.cssFloat = "left";
                 title.textContent = tests[i].title;
                 var score = document.createElement("span");
-                button.appendChild(score);
                 score.style.cssFloat = "right";
                 score.textContent = testsPassed + "/" + tests[i].results.length;
                 var div2 = document.createElement("div");
-                div1.appendChild(div2);
-                button.div = div2;
-                button.onclick = function () { expandOrCollapseTestResults(this.div); };
+                div2.style.display = "none";
                 var div3 = document.createElement("div");
+                div3.style.width = "100%";
+                div3.style.overflow = "auto";
+                div3.style.backgroundColor = "#3996D2";
+                div3.style.color = "#FFFFFF";
                 var testDescriptionTemplate = document.createElement("span");
                 testDescriptionTemplate.style.paddingLeft = "8pt";
                 var testResultTemplate = document.createElement("span");
@@ -73,14 +71,21 @@
                     var test = div3.cloneNode();
                     var testDescription = testDescriptionTemplate.cloneNode();
                     var testResult = testResultTemplate.cloneNode();
-                    test.appendChild(testDescription);
-                    test.appendChild(testResult);
-                    div2.appendChild(test);
                     if (!tests[i].results[j])
                         test.style.backgroundColor = "#D34F4F";
                     testDescription.textContent = tests[i].testDescriptions[j];
                     testResult.textContent = tests[i].results[j];
+                    test.appendChild(testDescription);
+                    test.appendChild(testResult);
+                    div2.appendChild(test);
                 }
+                button.appendChild(title);
+                button.appendChild(score);
+                button.div = div2;
+                button.onclick = function () { expandOrCollapseTestResults(this.div); };
+                div1.appendChild(button);
+                div1.appendChild(div2);
+                document.getElementById("tab-html-content").appendChild(div1);
             }
             document.getElementById("tab-html-button").style.display = "inline";
             document.getElementById("tab-css-button").style.display = "inline";
