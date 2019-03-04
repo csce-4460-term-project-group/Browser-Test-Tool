@@ -12,3 +12,9 @@
         margin: 0px;
         display: block;
     }
+
+.individual-test-results {
+    width: 100%;
+    background-color: #3996D2;
+    color: #FFFFFF;
+}
