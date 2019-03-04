@@ -47,15 +47,20 @@
                     if (tests[i].results[j])
                         testsPassed++;
                 var div1 = document.createElement("div");
+                document.getElementById("tab-html-content").appendChild(div1);
                 div1.classList.toggle("test-results");
                 var button = document.createElement("button");
+                div1.appendChild(button);
                 var title = document.createElement("span");
+                button.appendChild(title);
                 title.style.cssFloat = "left";
                 title.textContent = tests[i].title;
                 var score = document.createElement("span");
+                button.appendChild(score);
                 score.style.cssFloat = "right";
                 score.textContent = testsPassed + "/" + tests[i].results.length;
                 var div2 = document.createElement("div");
+                div1.appendChild(div2);
                 var div3 = document.createElement("div");
                 var testDescriptionTemplate = document.createElement("span");
                 testDescriptionTemplate.style.paddingLeft = "8pt";
@@ -74,13 +79,8 @@
                     testDescription.textContent = tests[i].testDescriptions[j];
                     testResult.textContent = tests[i].results[j];
                 }
-                button.appendChild(title);
-                button.appendChild(score);
                 button.div = div2;
                 button.onclick = function () { expandOrCollapseTestResults(this.div); };
-                div1.appendChild(button);
-                div1.appendChild(div2);
-                document.getElementById("tab-html-content").appendChild(div1);
             }
             document.getElementById("tab-html-button").style.display = "inline";
             document.getElementById("tab-css-button").style.display = "inline";
