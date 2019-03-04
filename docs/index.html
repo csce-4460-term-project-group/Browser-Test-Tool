@@ -61,6 +61,8 @@
                 score.textContent = testsPassed + "/" + tests[i].results.length;
                 var div2 = document.createElement("div");
                 div1.appendChild(div2);
+                button.div = div2;
+                button.onclick = function () { expandOrCollapseTestResults(this.div); };
                 var div3 = document.createElement("div");
                 var testDescriptionTemplate = document.createElement("span");
                 testDescriptionTemplate.style.paddingLeft = "8pt";
@@ -79,8 +81,6 @@
                     testDescription.textContent = tests[i].testDescriptions[j];
                     testResult.textContent = tests[i].results[j];
                 }
-                button.div = div2;
-                button.onclick = function () { expandOrCollapseTestResults(this.div); };
             }
             document.getElementById("tab-html-button").style.display = "inline";
             document.getElementById("tab-css-button").style.display = "inline";
