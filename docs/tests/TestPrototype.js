@@ -1,4 +1,5 @@
-function BrowserTest() { }
-BrowserTest.prototype.title = "";
-BrowserTest.prototype.testDescriptions = [];
-BrowserTest.prototype.results = [];
+function BrowserTest() {
+    this.prototype.title = "";
+    this.prototype.testDescriptions = [];
+    this.prototype.results = [];
+}
