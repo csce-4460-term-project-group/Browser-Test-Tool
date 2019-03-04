@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+    <p>Click the button to find out if this browser supports the access key attribute.</p>
+    <a id="myAnchor" accesskey="A"></a>
+
+    <button id="myBtn" onclick="myFunction()">Try it</button>
+    <p id="test"></p>
+
+    <script>
+function myFunction() {
+
+    var arrayOfAttributes = ["accessKey","className", "contentEditable", "dir", "draggable", "hidden", "id", "lang", "spellcheck", "style", "tabIndex", "title", "translate"];
+    var numberOfSupportedAttributes = 0;
+
+    for (var i = 0; i < arrayOfAttributes.length; i++) {
+        var myElem = document.createElement("a");
+
+        if ((arrayOfAttributes[i]) in myElem) {
+            numberOfSupportedAttributes++;
+        }
+
+        else {
+            console.log(arrayOfAttributes[i] + " is not supported.");
+        }
+    }
+
+        document.getElementById("test").textContent = numberOfSupportedAttributes;
+}
+    </script>
+
+
+</body>
+</html>
