@@ -60,10 +60,8 @@
                 var div3 = document.createElement("div");
                 div3.classList.toggle("individual-test-results");
                 var testDescriptionTemplate = document.createElement("span");
-                testDescriptionTemplate.style.paddingLeft = "8pt";
                 var testResultTemplate = document.createElement("span");
                 testResultTemplate.style.cssFloat = "right";
-                testResultTemplate.style.paddingRight = "8pt";
                 for (var j = 0; j < tests[i].results.length; j++) {
                     var test = div3.cloneNode(true);
                     var testDescription = testDescriptionTemplate.cloneNode();
