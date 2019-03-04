@@ -40,23 +40,15 @@
             buttonClicked.disabled = true;
             var tests = [];
             tests.push(TestHTML5Elements());
-            tests.push(TestHTML5GlobalAttributes()); //
+            tests.push(TestHTML5GlobalAttributes());
             for (var i = 0; i < tests.length; i++) {
                 var testsPassed = 0;
                 for (var j = 0; j < tests[i].results.length; j++)
                     if (tests[i].results[j])
                         testsPassed++;
                 var div1 = document.createElement("div");
-                div1.style.width = "50%";
-                div1.style.margin = "8pt";
+                div1.classList.toggle("test-results");
                 var button = document.createElement("button");
-                button.style.width = "100%";
-                button.style.backgroundColor = "#1976D2";
-                button.style.color = "#FFFFFF";
-                button.style.border = "none";
-                button.style.padding = "8pt";
-                button.style.margin = "0px";
-                button.style.display = "block";
                 var title = document.createElement("span");
                 title.style.cssFloat = "left";
                 title.textContent = tests[i].title;
