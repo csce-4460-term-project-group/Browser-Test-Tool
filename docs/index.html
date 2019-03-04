@@ -37,6 +37,7 @@
             buttonClicked.disabled = true;
             var tests = [];
             tests.push(TestHTML5Elements());
+            tests.push(TestHTML5GlobalAttributes());
             for (var i = 0; i < tests.length; i++) {
                 var testsPassed = 0;
                 for (var j = 0; j < tests[i].results.length; j++)
