@@ -1,5 +1,8 @@
 function BrowserTest() {
-    this.prototype.title = "";
-    this.prototype.testDescriptions = [];
-    this.prototype.results = [];
+    this.title = "";
+    this.testDescriptions = [];
+    this.results = [];
 }
+BrowserTest.prototype.title = "";
+BrowserTest.prototype.testDescriptions = [];
+BrowserTest.prototype.results = [];
