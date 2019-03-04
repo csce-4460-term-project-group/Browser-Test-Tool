@@ -64,8 +64,8 @@
                 testResultTemplate.style.cssFloat = "right";
                 for (var j = 0; j < tests[i].results.length; j++) {
                     var test = div3.cloneNode(true);
-                    var testDescription = testDescriptionTemplate.cloneNode();
-                    var testResult = testResultTemplate.cloneNode();
+                    var testDescription = testDescriptionTemplate.cloneNode(true);
+                    var testResult = testResultTemplate.cloneNode(true);
                     if (!tests[i].results[j])
                         test.style.backgroundColor = "#D34F4F";
                     testDescription.textContent = tests[i].testDescriptions[j];
