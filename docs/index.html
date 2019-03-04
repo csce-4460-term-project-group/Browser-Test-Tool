@@ -65,7 +65,7 @@
                 testResultTemplate.style.cssFloat = "right";
                 testResultTemplate.style.paddingRight = "8pt";
                 for (var j = 0; j < tests[i].results.length; j++) {
-                    var test = div3.cloneNode();
+                    var test = div3.cloneNode(true);
                     var testDescription = testDescriptionTemplate.cloneNode();
                     var testResult = testResultTemplate.cloneNode();
                     if (!tests[i].results[j])
