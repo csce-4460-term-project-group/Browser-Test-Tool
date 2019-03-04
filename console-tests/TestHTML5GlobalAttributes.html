@@ -2,14 +2,13 @@
 <html>
 <body>
 
-    <p>Click the button to find out if this browser supports the access key attribute.</p>
-    <a id="myAnchor" accesskey="A"></a>
+    <p>Click the button to find out how many global attributes this browser supports.</p>
 
     <button id="myBtn" onclick="myFunction()">Try it</button>
     <p id="test"></p>
 
     <script>
-function myFunction() {
+function myFunction() { //counts how many attributes are supported, prints that number, and logs unsupported attributes to console
 
     var arrayOfAttributes = ["accessKey","className", "contentEditable", "dir", "draggable", "hidden", "id", "lang", "spellcheck", "style", "tabIndex", "title", "translate"];
     var numberOfSupportedAttributes = 0;
@@ -26,7 +25,7 @@ function myFunction() {
         }
     }
 
-        document.getElementById("test").textContent = numberOfSupportedAttributes;
+        document.getElementById("test").textContent = numberOfSupportedAttributes; //print # of supported attributes
 }
     </script>
 

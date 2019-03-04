@@ -22,9 +22,11 @@
     </div>
     <div class="tab-css-content" id="tab-css-content">
     </div>
+    <!--test sources-->
     <script src="/Browser-Test-Tool/tests/TestPrototype.js"></script>
     <script src="/Browser-Test-Tool/tests/TestHTML5Elements.js"></script>
     <script src="/Browser-Test-Tool/tests/TestHTML5GlobalAttributes.js"></script>
+    <!--functions-->
     <script>
         function changeTab1() {
             document.getElementById("tab-html-content").style.display = "block";
@@ -38,7 +40,7 @@
             buttonClicked.disabled = true;
             var tests = [];
             tests.push(TestHTML5Elements());
-            tests.push(TestHTML5GlobalAttributes());
+            tests.push(TestHTML5GlobalAttributes()); //
             for (var i = 0; i < tests.length; i++) {
                 var testsPassed = 0;
                 for (var j = 0; j < tests[i].results.length; j++)

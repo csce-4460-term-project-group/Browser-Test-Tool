@@ -9,7 +9,6 @@ function TestHTML5GlobalAttributes() {
     for (var i = 0; i < arrayOfAttributes.length; i++) {
         test.testDescriptions.push("<" + arrayOfAttributes[i] + ">");
         test.results.push((arrayOfAttributes[i]) in myElem);
-
     }
     return test;
 }
