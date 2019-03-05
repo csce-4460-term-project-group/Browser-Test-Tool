@@ -3,6 +3,6 @@ function BrowserTest() {
     this.testDescriptions = [];
     this.results = [];
 }
-BrowserTest.prototype.title = "";
-BrowserTest.prototype.testDescriptions = [];
-BrowserTest.prototype.results = [];
+BrowserTest.prototype.title;
+BrowserTest.prototype.testDescriptions;
+BrowserTest.prototype.results;
