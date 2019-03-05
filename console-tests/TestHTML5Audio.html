@@ -1,0 +1,20 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Test HTML 5 Audio</title>
+</head>
+<body>
+    <script>
+        var audio = document.createElement("audio");
+        if (audio instanceof HTMLAudioElement) {
+            console.log("MP3 " + audio.canPlayType("audio/mp3"));
+            console.log("Ogg " + audio.canPlayType("audio/ogg"));
+            console.log("WAV " + audio.canPlayType("audio/wav"));
+        } else {
+            console.log("This browser does not support the <audio> element");
+        }
+    </script>
+</body>
+</html>

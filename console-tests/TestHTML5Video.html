@@ -1,6 +1,22 @@
 <!DOCTYPE html>
-<html>
-<body>
 
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Test HTML 5 Video</title>
+</head>
+<body>
+    <script>
+        var video = document.createElement("video");
+        if (video instanceof HTMLVideoElement) {
+            console.log("MP4 (AVC/H.264) " + video.canPlayType("video/mp4; codecs=avc1.42E01E"));
+            console.log("MP4 (HEVC/H.265) " + video.canPlayType("video/mp4; codecs=hev1"));
+            console.log("Ogg (Theora) " + video.canPlayType("video/ogg; codecs=theora"));
+            console.log("WebM (VP8) " + video.canPlayType("video/webm; codecs=vp8"));
+            console.log("WebM (VP9) " + video.canPlayType("video/webm; codecs=vp9"));
+        } else {
+            console.log("This browser does not support the <video> element");
+        }
+    </script>
 </body>
 </html>
