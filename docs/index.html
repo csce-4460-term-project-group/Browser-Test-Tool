@@ -26,6 +26,7 @@
     <script src="/Browser-Test-Tool/tests/TestPrototype.js"></script>
     <script src="/Browser-Test-Tool/tests/TestHTML5Elements.js"></script>
     <script src="/Browser-Test-Tool/tests/TestHTML5GlobalAttributes.js"></script>
+    <script src="/Browser-Test-Tool/tests/TestHTML5Audio.js"></script>
     <!--functions-->
     <script>
         function changeTab1() {
@@ -41,6 +42,7 @@
             var tests = [];
             tests.push(TestHTML5Elements());
             tests.push(TestHTML5GlobalAttributes());
+            tests.push(TestHTML5Audio());
             for (var i = 0; i < tests.length; i++) {
                 var testsPassed = 0;
                 for (var j = 0; j < tests[i].results.length; j++)
