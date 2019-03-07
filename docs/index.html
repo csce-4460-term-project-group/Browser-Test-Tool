@@ -26,6 +26,7 @@
     <script src="/Browser-Test-Tool/tests/TestPrototype.js"></script>
     <script src="/Browser-Test-Tool/tests/TestHTML5Elements.js"></script>
     <script src="/Browser-Test-Tool/tests/TestHTML5GlobalAttributes.js"></script>
+    <script src="/Browser-Test-Tool/tests/TestHTML5EventHandlers.js"></script>
     <script src="/Browser-Test-Tool/tests/TestHTML5Audio.js"></script>
     <script src="/Browser-Test-Tool/tests/TestHTML5Video.js"></script>
     <!--functions-->
@@ -43,6 +44,7 @@
             var tests = [];
             tests.push(TestHTML5Elements());
             tests.push(TestHTML5GlobalAttributes());
+            tests.push(TestHTML5EventHandlers);
             tests.push(TestHTML5Audio());
             tests.push(TestHTML5Video());
             for (var i = 0; i < tests.length; i++) {
