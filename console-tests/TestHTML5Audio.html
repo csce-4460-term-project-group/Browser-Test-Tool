@@ -7,6 +7,7 @@
 </head>
 <body>
     <script>
+        //This script tests whether the browser can play the following audio formats.
         var audio = document.createElement("audio");
         if (audio instanceof HTMLAudioElement) {
             console.log("MP3 " + audio.canPlayType("audio/mp3"));
