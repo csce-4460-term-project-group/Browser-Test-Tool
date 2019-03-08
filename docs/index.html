@@ -49,11 +49,15 @@
             tests.push(TestHTML5InputTypes());
             tests.push(TestHTML5Audio());
             tests.push(TestHTML5Video());
+            var totalTestsPassed = 0;
+            var totalTests = 0;
             for (var i = 0; i < tests.length; i++) {
                 var testsPassed = 0;
                 for (var j = 0; j < tests[i].results.length; j++)
                     if (tests[i].results[j])
                         testsPassed++;
+                totalTestsPassed += testsPassed;
+                totalTests += tests[i].results.length;
                 var div1 = document.createElement("div");
                 div1.classList.toggle("test-results");
                 var button = document.createElement("button");
@@ -92,6 +96,19 @@
                 div1.appendChild(div2);
                 document.getElementById("tab-html-content").appendChild(div1);
             }
+            var div1 = document.createElement("div");
+            div1.classList.toggle("test-results");
+            var button = document.createElement("button");
+            var title = document.createElement("span");
+            title.style.cssFloat = "left";
+            title.textContent = "Supported Features";
+            var score = document.createElement("span");
+            score.style.cssFloat = "right";
+            score.textContent = totalTestsPassed + "/" + totalTests;
+            button.appendChild(title);
+            button.appendChild(score);
+            div1.appendChild(button);
+            document.getElementById("tab-html-content").insertBefore(div1, document.getElementById("tab-html-content").firstChild);
             document.getElementById("tab-html-button").style.display = "inline";
             document.getElementById("tab-css-button").style.display = "inline";
             document.getElementById("tab-html-content").style.display = "block";
