@@ -23,6 +23,8 @@
         <div style="width:50%;float:right;" id="tab-html-content-implementations"></div>
     </div>
     <div class="tab-css-content" id="tab-css-content">
+        <div style="width:50%;float:left;" id="tab-css-content-features"></div>
+        <div style="width:50%;float:right;" id="tab-css-content-implementations"></div>
     </div>
     <!--test sources-->
     <script src="/Browser-Test-Tool/scripts/TestPrototype.js"></script>
@@ -55,6 +57,10 @@
             GetTestResults(HTML5FeatureTests, "Supported Features", "tab-html-content-features");
             var HTML5ImplementationTests = [];
             GetTestResults(HTML5ImplementationTests, "Correct Implementations", "tab-html-content-implementations");
+            var CSSFeatureTests = [];
+            GetTestResults(CSSFeatureTests, "Supported Features", "tab-css-content-features");
+            var CSSImplementationTests = [];
+            GetTestResults(CSSImplementationTests, "Correct Implementations", "tab-css-content-implementations");
             document.getElementById("tab-html-button").style.display = "inline";
             document.getElementById("tab-css-button").style.display = "inline";
             document.getElementById("tab-html-content").style.display = "block";
