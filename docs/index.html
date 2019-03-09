@@ -19,6 +19,8 @@
         <button class="tab-css" id="tab-css-button" onclick="changeTab2()">CSS</button>
     </div>
     <div class="tab-html-content" id="tab-html-content">
+        <div style="width:50%;float:left;" id="tab-html-content-features"></div>
+        <div style="width:50%;float:right;" id="tab-html-content-implementations"></div>
     </div>
     <div class="tab-css-content" id="tab-css-content">
     </div>
@@ -50,7 +52,9 @@
             HTML5FeatureTests.push(TestHTML5InputTypes());
             HTML5FeatureTests.push(TestHTML5Audio());
             HTML5FeatureTests.push(TestHTML5Video());
-            GetTestResults(HTML5FeatureTests, "Supported Features", "tab-html-content");
+            GetTestResults(HTML5FeatureTests, "Supported Features", "tab-html-content-features");
+            var HTML5ImplementationTests = [];
+            GetTestResults(HTML5ImplementationTests, "Correct Implementations", "tab-html-content-implementations");
             document.getElementById("tab-html-button").style.display = "inline";
             document.getElementById("tab-css-button").style.display = "inline";
             document.getElementById("tab-html-content").style.display = "block";
