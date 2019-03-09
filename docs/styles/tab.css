@@ -2,6 +2,8 @@
     background-color: #0D47A1;
     color: #FFFFFF;
     border: none;
+    padding: 8pt;
+    margin: 0px;
     display: none;
 }
 
@@ -21,6 +23,8 @@
     background-color: #1B5E20;
     color: #FFFFFF;
     border: none;
+    padding: 8pt;
+    margin: 0px;
     display: none;
 }
 
