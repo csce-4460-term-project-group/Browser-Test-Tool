@@ -1,4 +1,4 @@
-function GetTestResults(tests, divId) {
+function GetTestResults(tests, testType, divId) {
     var totalTestsPassed = 0;
     var totalTests = 0;
     for (var i = 0; i < tests.length; i++) {
@@ -51,7 +51,7 @@ function GetTestResults(tests, divId) {
     var button = document.createElement("button");
     var title = document.createElement("span");
     title.style.cssFloat = "left";
-    title.textContent = "Supported Features";
+    title.textContent = testType;
     var score = document.createElement("span");
     score.style.cssFloat = "right";
     score.textContent = totalTestsPassed + "/" + totalTests;
