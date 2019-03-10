@@ -35,6 +35,7 @@
     <script src="/Browser-Test-Tool/scripts/TestHTML5InputTypes.js"></script>
     <script src="/Browser-Test-Tool/scripts/TestHTML5Audio.js"></script>
     <script src="/Browser-Test-Tool/scripts/TestHTML5Video.js"></script>
+    <script src="/Browser-Test-Tool/scripts/TestCSSSelectors.js"></script>
     <!--functions-->
     <script>
         function changeTab1() {
@@ -58,6 +59,7 @@
             var HTML5ImplementationTests = [];
             GetTestResults(HTML5ImplementationTests, "Correct Implementations", "tab-html-content-implementations");
             var CSSFeatureTests = [];
+            CSSFeatureTests.push(TestCSSSelectors());
             GetTestResults(CSSFeatureTests, "Supported Features", "tab-css-content-features");
             var CSSImplementationTests = [];
             GetTestResults(CSSImplementationTests, "Correct Implementations", "tab-css-content-implementations");
