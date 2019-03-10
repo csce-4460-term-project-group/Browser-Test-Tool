@@ -1,11 +1,11 @@
-﻿.test-results {
+﻿.test-results-blue {
     margin-top: 8pt;
     margin-bottom: 8pt;
     padding-left: 8pt;
     padding-right: 8pt;
 }
 
-    .test-results button {
+    .test-results-blue button {
         width: 100%;
         background-color: #1976D2;
         color: #FFFFFF;
@@ -15,8 +15,31 @@
         display: block;
     }
 
-.individual-test-results {
+.individual-test-results-blue {
     width: 100%;
     background-color: #3996D2;
+    color: #FFFFFF;
+}
+
+.test-results-green {
+    margin-top: 8pt;
+    margin-bottom: 8pt;
+    padding-left: 8pt;
+    padding-right: 8pt;
+}
+
+    .test-results-green button {
+        width: 100%;
+        background-color: #388E3C;
+        color: #FFFFFF;
+        border: none;
+        padding: 8pt;
+        margin: 0px;
+        display: block;
+    }
+
+.individual-test-results-green {
+    width: 100%;
+    background-color: #588E5C;
     color: #FFFFFF;
 }

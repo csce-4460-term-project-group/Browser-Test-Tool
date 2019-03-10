@@ -1,4 +1,4 @@
-function GetTestResults(tests, testType, divId) {
+function GetTestResults(tests, testType, divId, color) {
     var totalTestsPassed = 0;
     var totalTests = 0;
     for (var i = 0; i < tests.length; i++) {
@@ -9,7 +9,7 @@ function GetTestResults(tests, testType, divId) {
         totalTestsPassed += testsPassed;
         totalTests += tests[i].results.length;
         var div1 = document.createElement("div");
-        div1.classList.toggle("test-results");
+        div1.classList.toggle("test-results-" + color);
         var button = document.createElement("button");
         var title = document.createElement("span");
         title.style.cssFloat = "left";
@@ -20,7 +20,7 @@ function GetTestResults(tests, testType, divId) {
         var div2 = document.createElement("div");
         div2.style.display = "none";
         var div3 = document.createElement("div");
-        div3.classList.toggle("individual-test-results");
+        div3.classList.toggle("individual-test-results-" + color);
         var testDescriptionTemplate = document.createElement("span");
         testDescriptionTemplate.style.paddingLeft = "8pt";
         var testResultTemplate = document.createElement("span");
@@ -47,7 +47,7 @@ function GetTestResults(tests, testType, divId) {
         document.getElementById(divId).appendChild(div1);
     }
     var div1 = document.createElement("div");
-    div1.classList.toggle("test-results");
+    div1.classList.toggle("test-results-" + color);
     var button = document.createElement("button");
     var title = document.createElement("span");
     title.style.cssFloat = "left";
