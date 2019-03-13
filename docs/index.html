@@ -39,6 +39,7 @@
     <script src="/Browser-Test-Tool/scripts/TestCSSMediaQueries.js"></script>
     <script src="/Browser-Test-Tool/scripts/TestCSSConditionalRules.js"></script>
     <script src="/Browser-Test-Tool/scripts/TestCSSSelectors.js"></script>
+    <script src="/Browser-Test-Tool/scripts/TestCSSValuesAndUnits.js"></script>
     <!--functions-->
     <script>
         function changeTab1() {
@@ -65,6 +66,7 @@
             CSSFeatureTests.push(TestCSSMediaQueries());
             CSSFeatureTests.push(TestCSSConditionalRules());
             CSSFeatureTests.push(TestCSSSelectors());
+            CSSFeatureTests.push(TestCSSValuesAndUnits());
             GetTestResults(CSSFeatureTests, "Supported Features", "tab-css-content-features", "green");
             var CSSImplementationTests = [];
             GetTestResults(CSSImplementationTests, "Correct Implementations", "tab-css-content-implementations", "green");
