@@ -1,6 +1,6 @@
 function TestCSSConditionalRules() {
     var test = new BrowserTest();
-    test.title = "Conditional Rules Module Level 3";
+    test.title = "Conditional Rules";
     test.testDescriptions.push("@supports");
     try {
         CSS.supports;

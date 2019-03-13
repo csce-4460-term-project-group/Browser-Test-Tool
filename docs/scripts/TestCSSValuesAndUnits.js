@@ -1,6 +1,6 @@
 function TestCSSValuesAndUnits() {
     var test = new BrowserTest();
-    test.title = "Values and Units Module Level 3";
+    test.title = "Values and Units";
     test.testDescriptions = ["CSS-wide keywords: inital", "CSS-wide keywords: inherit", "CSS-wide keywords: unset", "Quoted Strings", "Resource Locators", "Integers", "Real Numbers", "Percentages",
         "Relative length units: 'em'", "Relative length units: 'ex'", "Relative length units: 'ch'", "Relative length units: 'rem'", "Relative length units: 'vw'", "Relative length units: 'vh'", "Relative length units: 'vmin'", "Relative length units: 'vmax'",
         "Absolute length units: 'cm'", "Absolute length units: 'mm'", "Absolute length units: 'Q'", "Absolute length units: 'in'", "Absolute length units: 'pc'", "Absolute length units: 'pt'", "Absolute length units: 'px'",
