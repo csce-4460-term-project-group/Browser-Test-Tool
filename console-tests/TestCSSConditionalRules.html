@@ -7,48 +7,12 @@
 </head>
 <body>
     <script>
-        //This script checks if the browser supports @supports and the following CSS interfaces.
+        //This script checks if the browser supports @supports.
         try {
             CSS.supports;
             console.log("@supports " + true);
         } catch (e) {
             console.log("@supports " + false);
-        }
-        try {
-            CSSRule;
-            console.log("CSSRule " + true);
-        } catch (e) {
-            console.log("CSSRule " + false);
-        }
-        try {
-            CSSGroupingRule;
-            console.log("CSSGroupingRule " + true);
-        } catch (e) {
-            console.log("CSSGroupingRule " + false);
-        }
-        try {
-            CSSConditionRule;
-            console.log("CSSConditionRule " + true);
-        } catch (e) {
-            console.log("CSSConditionRule " + false);
-        }
-        try {
-            CSSMediaRule;
-            console.log("CSSMediaRule " + true);
-        } catch (e) {
-            console.log("CSSMediaRule " + false);
-        }
-        try {
-            CSSSupportsRule;
-            console.log("CSSSupportsRule " + true);
-        } catch (e) {
-            console.log("CSSSupportsRule " + false);
-        }
-        try {
-            CSS;
-            console.log("CSS " + true);
-        } catch (e) {
-            console.log("CSS " + false);
         }
     </script>
 </body>
