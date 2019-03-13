@@ -36,6 +36,7 @@
     <script src="/Browser-Test-Tool/scripts/TestHTML5InputTypes.js"></script>
     <script src="/Browser-Test-Tool/scripts/TestHTML5Audio.js"></script>
     <script src="/Browser-Test-Tool/scripts/TestHTML5Video.js"></script>
+    <script src="/Browser-Test-Tool/scripts/TestCSSMediaQueries.js"></script>
     <script src="/Browser-Test-Tool/scripts/TestCSSConditionalRules.js"></script>
     <script src="/Browser-Test-Tool/scripts/TestCSSSelectors.js"></script>
     <!--functions-->
@@ -61,6 +62,7 @@
             var HTML5ImplementationTests = [];
             GetTestResults(HTML5ImplementationTests, "Correct Implementations", "tab-html-content-implementations", "blue");
             var CSSFeatureTests = [];
+            CSSFeatureTests.push(TestCSSMediaQueries());
             CSSFeatureTests.push(TestCSSConditionalRules());
             CSSFeatureTests.push(TestCSSSelectors());
             GetTestResults(CSSFeatureTests, "Supported Features", "tab-css-content-features", "green");
