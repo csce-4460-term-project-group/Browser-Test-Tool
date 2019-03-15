@@ -39,6 +39,7 @@
     <script src="/Browser-Test-Tool/scripts/TestCSSBoxModel.js"></script>
     <script src="/Browser-Test-Tool/scripts/TestCSSMediaQueries.js"></script>
     <script src="/Browser-Test-Tool/scripts/TestCSSConditionalRules.js"></script>
+    <script src="/Browser-Test-Tool/scripts/TestCSSNamespaces.js"></script>
     <script src="/Browser-Test-Tool/scripts/TestCSSSelectors.js"></script>
     <!--functions-->
     <script>
@@ -66,6 +67,7 @@
             CSSFeatureTests.push(TestCSSBoxModel());
             CSSFeatureTests.push(TestCSSMediaQueries());
             CSSFeatureTests.push(TestCSSConditionalRules());
+            CSSFeatureTests.push(TestCSSNamespaces());
             CSSFeatureTests.push(TestCSSSelectors());
             GetTestResults(CSSFeatureTests, "Supported Features", "tab-css-content-features", "green");
             var CSSImplementationTests = [];
