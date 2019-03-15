@@ -37,6 +37,7 @@
     <script src="/Browser-Test-Tool/scripts/TestHTML5Audio.js"></script>
     <script src="/Browser-Test-Tool/scripts/TestHTML5Video.js"></script>
     <script src="/Browser-Test-Tool/scripts/TestCSSBoxModel.js"></script>
+    <script src="/Browser-Test-Tool/scripts/TestCSSStyleAttributes.js"></script>
     <script src="/Browser-Test-Tool/scripts/TestCSSMediaQueries.js"></script>
     <script src="/Browser-Test-Tool/scripts/TestCSSConditionalRules.js"></script>
     <script src="/Browser-Test-Tool/scripts/TestCSSNamespaces.js"></script>
@@ -65,6 +66,7 @@
             GetTestResults(HTML5ImplementationTests, "Correct Implementations", "tab-html-content-implementations", "blue");
             var CSSFeatureTests = [];
             CSSFeatureTests.push(TestCSSBoxModel());
+            CSSFeatureTests.push(TestCSSStyleAttributes());
             CSSFeatureTests.push(TestCSSMediaQueries());
             CSSFeatureTests.push(TestCSSConditionalRules());
             CSSFeatureTests.push(TestCSSNamespaces());
