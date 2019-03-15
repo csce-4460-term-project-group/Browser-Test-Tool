@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Test CSS Namespaces</title>
+</head>
+<body>
+    <script>
+        //This script checks if the browser recognizes the namespace selector.
+        var selectors = ['*|a'];
+        var element = document.createElement("a");
+        if ("matches" in element)
+            for (var i = 0; i < selectors.length; i++)
+                try {
+                    element.matches(selectors[i]);
+                    console.log(selectors[i] + " " + true);
+                } catch (e) {
+                    console.log(selectors[i] + " " + false);
+                }
+        else if ("msMatchesSelector" in element)
+            for (var i = 0; i < selectors.length; i++)
+                try {
+                    element.msMatchesSelector(selectors[i]);
+                    console.log(selectors[i] + " " + true);
+                } catch (e) {
+                    console.log(selectors[i] + " " + false);
+                }
+        else if ("webkitMatchesSelector" in element)
+            for (var i = 0; i < selectors.length; i++)
+                try {
+                    element.webkitMatchesSelector(selectors[i]);
+                    console.log(selectors[i] + " " + true);
+                } catch (e) {
+                    console.log(selectors[i] + " " + false);
+                }
+    </script>
+</body>
+</html>
