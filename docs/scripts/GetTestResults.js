@@ -50,7 +50,7 @@ function GetTestResults(tests, testType, divId, color) {
     title.style.cssFloat = "left";
     title.style.padding = "16pt";
     title.style.fontSize = "xx-large";
-    titel.style.color = "#FFFFFF";
+    title.style.color = "#FFFFFF";
     title.textContent = testType;
     var score = document.createElement("span");
     score.style.cssFloat = "right";
