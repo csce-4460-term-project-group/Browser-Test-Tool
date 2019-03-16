@@ -29,6 +29,7 @@
     padding: 8pt;
     margin: 0px;
     display: block;
+    font-size: xx-large;
 }
 
 .test-results-green {
@@ -62,4 +63,5 @@
     padding: 8pt;
     margin: 0px;
     display: block;
+    font-size: xx-large;
 }
