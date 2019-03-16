@@ -47,24 +47,17 @@ function GetTestResults(tests, testType, divId, color) {
         document.getElementById(divId).appendChild(div1);
     }
     var div1 = document.createElement("div");
-    div1.style.fontSize = "xx-large";
-    div1.style.color = "#FFFFFF";
+    div1.classList.toggle("test-results-" + color);
+    var button = document.createElement("button");
     var title = document.createElement("span");
     title.style.cssFloat = "left";
-    title.style.paddingTop = "16pt";
-    title.style.paddingBottom = "16pt";
-    title.style.paddingLeft = "16pt";
-    title.style.paddingRight = "16pt";
     title.textContent = testType;
     var score = document.createElement("span");
     score.style.cssFloat = "right";
-    score.style.paddingTop = "16pt";
-    score.style.paddingBottom = "16pt";
-    score.style.paddingLeft = "16pt";
-    score.style.paddingRight = "16pt";
     score.textContent = totalTestsPassed + "/" + totalTests;
-    div1.appendChild(title);
-    div1.appendChild(score);
+    button.appendChild(title);
+    button.appendChild(score);
+    div1.appendChild(button);
     document.getElementById(divId).insertBefore(div1, document.getElementById(divId).firstChild);
 }
 function expandOrCollapseTestResults(div) {
