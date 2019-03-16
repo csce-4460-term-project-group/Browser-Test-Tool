@@ -48,7 +48,7 @@ function GetTestResults(tests, testType, divId, color) {
     }
     var div1 = document.createElement("div");
     div1.classList.toggle("test-results-" + color);
-    var button = document.createElement("button");
+    var button = document.createElement("div");
     button.classList.toggle("testType-" + color);
     var title = document.createElement("span");
     title.style.cssFloat = "left";
