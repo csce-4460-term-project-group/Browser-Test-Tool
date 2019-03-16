@@ -1,0 +1,16 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Test CSS Visual Formatting Model</title>
+</head>
+<body>
+    <script src="https://csce-4460-term-project-group.github.io/Browser-Test-Tool/libraries/Modernizr.js"></script>
+    <script>
+        var properties = ['display', 'position', 'top', 'right', 'bottom', 'left', 'float', 'clear', 'z-index', 'direction', 'unicode-bidi', 'width', 'min-width', 'max-width', 'height', 'min-height', 'max-height', 'line-height', 'vertical-align'];
+        for (var i = 0; i < properties.length; i++)
+            console.log(properties[i] + " " + Modernizr.testProp(properties[i]));
+    </script>
+</body>
+</html>
