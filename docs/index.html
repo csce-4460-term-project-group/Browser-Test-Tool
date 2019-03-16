@@ -36,14 +36,14 @@
     <script src="/Browser-Test-Tool/scripts/TestHTML5InputTypes.js"></script>
     <script src="/Browser-Test-Tool/scripts/TestHTML5Audio.js"></script>
     <script src="/Browser-Test-Tool/scripts/TestHTML5Video.js"></script>
-    <script src="/Browser-Test-Tool/scripts/TestCSSBoxModel.js"></script>
-    <script src="/Browser-Test-Tool/scripts/TestCSSVisualFormattingModel.js"></script>
-    <script src="/Browser-Test-Tool/scripts/TestCSSStyleAttributes.js"></script>
-    <script src="/Browser-Test-Tool/scripts/TestCSSMediaQueries.js"></script>
+    <script src="/Browser-Test-Tool/scripts/TestCSSColor.js"></script>
     <script src="/Browser-Test-Tool/scripts/TestCSSNamespaces.js"></script>
     <script src="/Browser-Test-Tool/scripts/TestCSSSelectors.js"></script>
-    <script src="/Browser-Test-Tool/scripts/TestCSSColor.js"></script>
+    <script src="/Browser-Test-Tool/scripts/TestCSSBoxModel.js"></script>
+    <script src="/Browser-Test-Tool/scripts/TestCSSVisualFormattingModel.js"></script>
     <script src="/Browser-Test-Tool/scripts/TestCSSVisualEffects.js"></script>
+    <script src="/Browser-Test-Tool/scripts/TestCSSMediaQueries.js"></script>
+    <script src="/Browser-Test-Tool/scripts/TestCSSStyleAttributes.js"></script>
     <!--functions-->
     <script>
         function changeTab1() {
@@ -67,14 +67,14 @@
             var HTML5ImplementationTests = [];
             GetTestResults(HTML5ImplementationTests, "Correct Implementations", "tab-html-content-implementations", "blue");
             var CSSFeatureTests = [];
-            CSSFeatureTests.push(TestCSSBoxModel());
-            CSSFeatureTests.push(TestCSSVisualFormattingModel());
-            CSSFeatureTests.push(TestCSSStyleAttributes());
-            CSSFeatureTests.push(TestCSSMediaQueries());
+            CSSFeatureTests.push(TestCSSColor());
             CSSFeatureTests.push(TestCSSNamespaces());
             CSSFeatureTests.push(TestCSSSelectors());
-            CSSFeatureTests.push(TestCSSColor());
+            CSSFeatureTests.push(TestCSSBoxModel());
+            CSSFeatureTests.push(TestCSSVisualFormattingModel());
             CSSFeatureTests.push(TestCSSVisualEffects());
+            CSSFeatureTests.push(TestCSSMediaQueries());
+            CSSFeatureTests.push(TestCSSStyleAttributes());
             GetTestResults(CSSFeatureTests, "Supported Features", "tab-css-content-features", "green");
             var CSSImplementationTests = [];
             GetTestResults(CSSImplementationTests, "Correct Implementations", "tab-css-content-implementations", "green");
