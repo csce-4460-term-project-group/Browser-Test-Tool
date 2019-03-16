@@ -49,6 +49,8 @@ function GetTestResults(tests, testType, divId, color) {
     var div1 = document.createElement("div");
     div1.style.marginTop = "16pt";
     div1.style.marginBottom = "16pt";
+    div1.style.paddingLeft = "16pt";
+    div1.style.paddingRight = "16pt";
     div1.style.fontSize = "xx-large";
     var title = document.createElement("span");
     title.style.cssFloat = "left";
