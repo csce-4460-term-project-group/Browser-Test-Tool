@@ -48,13 +48,17 @@ function GetTestResults(tests, testType, divId, color) {
     }
     var title = document.createElement("span");
     title.style.cssFloat = "left";
-    title.style.padding = "16pt";
+    title.style.paddingTop = "16pt";
+    title.style.paddingBottom = "16pt";
+    title.style.paddingLeft = "16pt";
     title.style.fontSize = "xx-large";
     title.style.color = "#FFFFFF";
     title.textContent = testType;
     var score = document.createElement("span");
     score.style.cssFloat = "right";
-    score.style.padding = "16pt";
+    score.style.paddingTop = "16pt";
+    score.style.paddingBottom = "16pt";
+    score.style.paddingRight = "16pt";
     score.style.fontSize = "xx-large";
     score.style.color = "#FFFFFF";
     score.textContent = totalTestsPassed + "/" + totalTests;
