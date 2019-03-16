@@ -43,6 +43,7 @@
     <script src="/Browser-Test-Tool/scripts/TestCSSNamespaces.js"></script>
     <script src="/Browser-Test-Tool/scripts/TestCSSSelectors.js"></script>
     <script src="/Browser-Test-Tool/scripts/TestCSSColor.js"></script>
+    <script src="/Browser-Test-Tool/scripts/TestCSSVisualEffects.js"></script>
     <!--functions-->
     <script>
         function changeTab1() {
@@ -73,6 +74,7 @@
             CSSFeatureTests.push(TestCSSNamespaces());
             CSSFeatureTests.push(TestCSSSelectors());
             CSSFeatureTests.push(TestCSSColor());
+            CSSFeatureTests.push(TestCSSVisualEffects());
             GetTestResults(CSSFeatureTests, "Supported Features", "tab-css-content-features", "green");
             var CSSImplementationTests = [];
             GetTestResults(CSSImplementationTests, "Correct Implementations", "tab-css-content-implementations", "green");
