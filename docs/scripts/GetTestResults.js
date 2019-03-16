@@ -47,17 +47,17 @@ function GetTestResults(tests, testType, divId, color) {
         document.getElementById(divId).appendChild(div1);
     }
     var div1 = document.createElement("div");
-    div1.classList.toggle("test-results-" + color);
-    var button = document.createElement("button");
+    div1.style.marginTop = "16pt";
+    div1.style.marginBottom = "16pt";
+    div1.style.fontSize = "xx-large";
     var title = document.createElement("span");
     title.style.cssFloat = "left";
     title.textContent = testType;
     var score = document.createElement("span");
     score.style.cssFloat = "right";
     score.textContent = totalTestsPassed + "/" + totalTests;
-    button.appendChild(title);
-    button.appendChild(score);
-    div1.appendChild(button);
+    div1.appendChild(title);
+    div1.appendChild(score);
     document.getElementById(divId).insertBefore(div1, document.getElementById(divId).firstChild);
 }
 function expandOrCollapseTestResults(div) {
