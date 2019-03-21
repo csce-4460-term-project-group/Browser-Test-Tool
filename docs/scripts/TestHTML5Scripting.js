@@ -10,10 +10,10 @@ function TestHTML5Scripting() {
             return false;
         }
     }
-    var descriptions = ["ECMAScript 2016: Array.prototype.includes()", "ECMAScript 2016: Exponentiation Operator (**)",
-        "ECMAScript 2017: Async Functions", "ECMAScript 2017: Object.entries()", "ECMAScript 2017: Object.getOwnPropertyDescriptors()", "ECMAScript 2017: Object.values()", "ECMAScript 2017: String Padding", "ECMAScript 2017: Trailing Commas in Function Parameter",
-        "ECMAScript 2018: Asynchronous Iteration", "ECMAScript 2018: Object Rest/Spread Properties", "ECMAScript 2018: Promise.prototype.finally()",
-        "ECMAScript 2018: RegExp Lookbehind Assertions", "ECMAScript 2018: RegExp Named Capture Groups", "ECMAScript 2018: RegExp s (dotAll) Flag", "ECMAScript 2018: RegExp Unicode Property Escapes", "ECMAScript 2018: Template Literal Revision"];
+    var descriptions = ["ECMAScript 2016: Array.prototype.includes()", "ECMAScript 2016: Exponentiation Operator (**)",
+        "ECMAScript 2017: Async Functions", "ECMAScript 2017: Object.entries()", "ECMAScript 2017: Object.getOwnPropertyDescriptors()", "ECMAScript 2017: Object.values()", "ECMAScript 2017: String Padding", "ECMAScript 2017: Trailing Commas in Function Parameter",
+        "ECMAScript 2018: Asynchronous Iteration", "ECMAScript 2018: Object Rest/Spread Properties", "ECMAScript 2018: Promise.prototype.finally()",
+        "ECMAScript 2018: RegExp Lookbehind Assertions", "ECMAScript 2018: RegExp Named Capture Groups", "ECMAScript 2018: RegExp s (dotAll) Flag", "ECMAScript 2018: RegExp Unicode Property Escapes", "ECMAScript 2018: Template Literal Revision"];
     var scripts = ["var a = [1, 2, 3]; a.includes(4);", "var a = 5**5;",
         "var a = async function(){};", "Object.entries([]);", "Object.getOwnPropertyDescriptors([]);", "Object.values([]);", "var a = ''; a.padStart(5, 'a');", "var a = function(b,){};",
         "var a = []; var b = a[Symbol.asyncIterator];", "var a = ['string1', 'string2', 'string3', 'string4']; var [b, c, ...d] = a;", "var a = new Promise(function () { }).finally(function () { });",
