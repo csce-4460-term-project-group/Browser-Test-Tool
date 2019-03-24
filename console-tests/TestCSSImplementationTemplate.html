@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Title of Test</title>
+</head>
+<body>
+    <script src="https://csce-4460-term-project-group.github.io/Browser-Test-Tool/libraries/zlib.js"></script>
+    <script src="https://csce-4460-term-project-group.github.io/Browser-Test-Tool/libraries/png.js"></script>
+    <script>
+        var descriptions = ["css-property"];
+        var testStyles = ["Style.html"];
+        var testImages = ["Image.png"];
+        for (var i = 0; i < descriptions.length; i++) {
+            var text, stylePixels, imagePixels;
+            var requestStyle = new XMLHttpRequest();
+            requestStyle.open("GET", "https://csce-4460-term-project-group.github.io/Browser-Test-Tool/test-styles/" + testStyles[i], true);
+            requestStyle.responseType = "text";
+            var p1 = new Promise(function (resolve) {
+                requestStyle.onload = resolve;
+            }).then(function () {
+                text = requestStyle.response;
+            });
+            var requestImage = new XMLHttpRequest();
+            requestImage.open("GET", "https://csce-4460-term-project-group.github.io/Browser-Test-Tool/test-images/" + testImages[i], true);
+            requestImage.responseType = "arraybuffer";
+            var p2 = new Promise(function (resolve) {
+                requestImage.onload = resolve;
+            }).then(function () {
+                arrayBuffer = requestStyle.response;
+                var byteArray = new Uint8Array(arrayBuffer);
+                var pngImage = new PNG(byteArray);
+                imagePixels = pngImage.decodePixels();
+            });
+            Promise.all([p1, p2]).then(function () {
+                var canvas = document.createElement("canvas");
+                var context = canvas.getContext("2d");
+                canvas.width = canvas.height = 100;
+                var img = document.createElement("img");
+                img.src = "data:image/svg+xml," + encodeURIComponent(text);
+                new Promise(function (resolve) {
+                    img.onload = resolve;
+                }).then(function () {
+                    context.drawImage(img, 0, 0);
+                    stylePixels = context.getImageData(0, 0, 100, 100).data;
+                    for (var j = 0; j < stylePixels.length; j++)
+                        if (stylePixels[i] != imagePixels[i]) {
+                            console.log(descriptions[i] + " " + false);
+                            return;
+                        }
+                    console.log(descriptions[i] + " " + true);
+                });
+            });
+        }
+    </script>
+</body>
+</html>
