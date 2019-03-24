@@ -33,6 +33,7 @@
                 var pngImage = new PNG(byteArray);
                 imagePixels = pngImage.decodePixels();
             });
+            var index = i;
             Promise.all([p1, p2]).then(function () {
                 var canvas = document.createElement("canvas");
                 var context = canvas.getContext("2d");
@@ -46,10 +47,10 @@
                     stylePixels = context.getImageData(0, 0, 100, 100).data;
                     for (var j = 0; j < stylePixels.length; j++)
                         if (stylePixels[j] != imagePixels[j]) {
-                            console.log(descriptions[i] + " " + false);
+                            console.log(descriptions[index] + " " + false);
                             return;
                         }
-                    console.log(descriptions[i] + " " + true);
+                    console.log(descriptions[index] + " " + true);
                 });
             });
             requestStyle.send();
