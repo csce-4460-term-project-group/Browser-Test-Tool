@@ -1,0 +1,562 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Test HTML 5 Elements Implementation</title>
+</head>
+<body>
+    <script>
+        var htmlElements = [];
+        var interfaces = [];
+        var attributes = [];
+
+        htmlElements.push("html");
+        interfaces.push(["HTMLHtmlElement"]);
+        attributes.push([]);
+
+        //head
+        htmlElements.push("head");
+        interfaces.push(["HTMLHeadElement"]);
+        attributes.push([]);
+
+        //title
+        htmlElements.push("title");
+        interfaces.push(["HTMLTitleElement"]);
+        attributes.push(["text"]);
+
+        //base
+        htmlElements.push("base");
+        interfaces.push(["HTMLBaseElement"]);
+        attributes.push(["href", "target"]);
+
+        //link
+        htmlElements.push("link");
+        interfaces.push(["HTMLLinkElement"]);
+        attributes.push(["href", "crossOrigin", "rel", "rev", "media", "nonce", "hreflang", "type", "sizes", "referrerPolicy"]);
+
+        //meta
+        htmlElements.push("meta");
+        interfaces.push(["HTMLMetaElement"]);
+        attributes.push(["name", "httpEquiv", "content"]);
+
+        //style
+        htmlElements.push("style");
+        interfaces.push(["HTMLStyleElement"]);
+        attributes.push(["media", "nonce", "type", "title"]);
+
+        //body
+        htmlElements.push("body");
+        interfaces.push(["HTMLBodyElement"]);
+        attributes.push(["onafterprint", "onbeforeprint", "onbeforeunload", "onhashchange", "onlanguagechange", "onmessage", "onoffline", "ononline", "onpagehide", "onpageshow", "onpopstate", "onrejectionhandled", "onstorage", "onunhandledrejection", "onunload"]);
+
+        //article
+        htmlElements.push("article");
+        interfaces.push([]);
+        attributes.push([]);
+
+        //section
+        htmlElements.push("section");
+        interfaces.push([]);
+        attributes.push([]);
+
+        //nav
+        htmlElements.push("nav");
+        interfaces.push([]);
+        attributes.push([]);
+
+        //aside
+        htmlElements.push("aside");
+        interfaces.push([]);
+        attributes.push([]);
+
+        //h1
+        htmlElements.push("h1");
+        interfaces.push(["HTMLHeadingElement"]);
+        attributes.push([]);
+
+        //h2
+        htmlElements.push("h2");
+        interfaces.push(["HTMLHeadingElement"]);
+        attributes.push([]);
+
+        //h3
+        htmlElements.push("h3");
+        interfaces.push(["HTMLHeadingElement"]);
+        attributes.push([]);
+
+        //h4
+        htmlElements.push("h4");
+        interfaces.push(["HTMLHeadingElement"]);
+        attributes.push([]);
+
+        //h5
+        htmlElements.push("h5");
+        interfaces.push(["HTMLHeadingElement"]);
+        attributes.push([]);
+
+        //h6
+        htmlElements.push("h6");
+        interfaces.push(["HTMLHeadingElement"]);
+        attributes.push([]);
+
+        //header
+        htmlElements.push("header");
+        interfaces.push([]);
+        attributes.push([]);
+
+        //footer
+        htmlElements.push("footer");
+        interfaces.push([]);
+        attributes.push([]);
+
+        //p
+        htmlElements.push("p");
+        interfaces.push(["HTMLParagraphElement"]);
+        attributes.push([]);
+
+        //address
+        htmlElements.push("address");
+        interfaces.push([]);
+        attributes.push([]);
+
+        //hr
+        htmlElements.push("hr");
+        interfaces.push(["HTMLHRElement"]);
+        attributes.push([]);
+
+        //pre
+        htmlElements.push("pre");
+        interfaces.push(["HTMLPreElement"]);
+        attributes.push([]);
+
+        //blockquote
+        htmlElements.push("blockquote");
+        interfaces.push(["HTMLQuoteElement"]);
+        attributes.push(["cite"]);
+
+        //ol
+        htmlElements.push("ol");
+        interfaces.push(["HTMLOListElement"]);
+        attributes.push(["reversed", "start", "type"]);
+
+        //ul
+        htmlElements.push("ul");
+        interfaces.push(["HTMLUListElement"]);
+        attributes.push([]);
+
+        //li
+        htmlElements.push("li");
+        interfaces.push(["HTMLLIElement"]);
+        attributes.push(["value"]); //if element is not a child of <ul>
+
+        //dl
+        htmlElements.push("dl");
+        interfaces.push(["HTMLDListElement"]);
+        attributes.push([]);
+
+        //dt
+        htmlElements.push("dt");
+        interfaces.push([]);
+        attributes.push([]);
+
+        //dd
+        htmlElements.push("dd");
+        interfaces.push([]);
+        attributes.push([]);
+
+        //figure
+        htmlElements.push("figure");
+        interfaces.push([]);
+        attributes.push([]);
+
+        //figcaption
+        htmlElements.push("figcaption");
+        interfaces.push([]);
+        attributes.push([]);
+
+        //main
+        htmlElements.push("main");
+        interfaces.push([]);
+        attributes.push([]);
+
+        //div
+        htmlElements.push("div");
+        interfaces.push(["HTMLDivElement"]);
+        attributes.push([]);
+
+        //a
+        htmlElements.push("a");
+        interfaces.push(["HTMLAnchorElement"]);
+        attributes.push(["href", "target", "download", "rel", "rev", "relList", "hreflang", "type", "text", "referrerPolicy", "origin", "protocol", "username", "password", "host", "hostname", "port", "pathname", "search", "hash"]);
+
+        //em
+        htmlElements.push("em");
+        interfaces.push([]);
+        attributes.push([]);
+
+        //strong
+        htmlElements.push("strong");
+        interfaces.push([]);
+        attributes.push([]);
+
+        //small
+        htmlElements.push("small");
+        interfaces.push([]);
+        attributes.push([]);
+
+        //s
+        htmlElements.push("s");
+        interfaces.push([]);
+        attributes.push([]);
+
+        //cite
+        htmlElements.push("cite");
+        interfaces.push([]);
+        attributes.push([]);
+
+        //q
+        htmlElements.push("q");
+        interfaces.push(["HTMLQuoteElement"]);
+        attributes.push(["cite"]);
+
+        //dfn
+        htmlElements.push("dfn");
+        interfaces.push([]);
+        attributes.push([]);
+
+        //abbr
+        htmlElements.push("abbr");
+        interfaces.push([]);
+        attributes.push([]);
+
+        //ruby
+        htmlElements.push("ruby");
+        interfaces.push([]);
+        attributes.push([]);
+
+        //rb
+        htmlElements.push("rb");
+        interfaces.push([]);
+        attributes.push([]);
+
+        //rt
+        htmlElements.push("rt");
+        interfaces.push([]);
+        attributes.push([]);
+
+        //rtc
+        htmlElements.push("rtc");
+        interfaces.push([]);
+        attributes.push([]);
+
+        //rp
+        htmlElements.push("rp");
+        interfaces.push([]);
+        attributes.push([]);
+
+        //data
+        htmlElements.push("data");
+        interfaces.push(["HTMLDataElement"]);
+        attributes.push(["value"]);
+
+        //time
+        htmlElements.push("time");
+        interfaces.push(["HTMLTimeElement"]);
+        attributes.push(["dateTime"]);
+
+        //code
+        htmlElements.push("code");
+        interfaces.push([]);
+        attributes.push([]);
+
+        //var
+        htmlElements.push("var");
+        interfaces.push([]);
+        attributes.push([]);
+
+        //samp
+        htmlElements.push("samp");
+        interfaces.push([]);
+        attributes.push([]);
+
+        //kbd
+        htmlElements.push("kbd");
+        interfaces.push([]);
+        attributes.push([]);
+
+        //sub
+        htmlElements.push("sub");
+        interfaces.push([]);
+        attributes.push([]);
+
+        //sup
+        htmlElements.push("sup");
+        interfaces.push([]);
+        attributes.push([]);
+
+        //i
+        htmlElements.push("i");
+        interfaces.push([]);
+        attributes.push([]);
+
+        //b
+        htmlElements.push("b");
+        interfaces.push([]);
+        attributes.push([]);
+
+        //u
+        htmlElements.push("u");
+        interfaces.push([]);
+        attributes.push([]);
+
+        //mark
+        htmlElements.push("mark");
+        interfaces.push([]);
+        attributes.push([]);
+
+        //bdi
+        htmlElements.push("bdi");
+        interfaces.push([]);
+        attributes.push([]);
+
+        //bdo
+        htmlElements.push("bdo");
+        interfaces.push([]);
+        attributes.push([]);
+
+        //span
+        htmlElements.push("span");
+        interfaces.push(["HTMLSpanElement"]);
+        attributes.push([]);
+
+        //br
+        htmlElements.push("br");
+        interfaces.push(["HTMLBRElement"]);
+        attributes.push([]);
+
+        //wbr
+        htmlElements.push("wbr");
+        interfaces.push([]);
+        attributes.push([]);
+
+        //ins
+        htmlElements.push("ins");
+        interfaces.push(["HTMLModElement"]);
+        attributes.push(["cite", "dateTime"]);
+
+        //del
+        htmlElements.push("del");
+        interfaces.push(["HTMLModElement"]);
+        attributes.push(["cite", "dateTime"]);
+
+        //picture
+        htmlElements.push("picture");
+        interfaces.push(["HTMLPictureElement"]);
+        attributes.push([]);
+
+        //source
+        htmlElements.push("source");
+        interfaces.push(["HTMLSourceElement"]);
+        attributes.push(["src", "type", "srcset", "sizes", "media"]);
+
+        //img
+        htmlElements.push("img");
+        interfaces.push(["HTMLImageElement"]);
+        attributes.push(["alt", "src", "srcset", "sizes", "crossOrigin", "useMap", "longDesc", "isMap", "width", "height", "naturalWidth", "naturalHeight", "complete", "currentSrc", "referrerPolicy"]);
+
+        //iframe
+        htmlElements.push("iframe");
+        interfaces.push(["HTMLIFrameElement"]);
+        attributes.push(["src", "srcdoc", "name", "sandbox", "allowFullscreen", "allowPaymentRequest", "width", "height", "referrerPolicy", "contentDocument", "contentWindow"]);
+
+        //embed
+        htmlElements.push("embed");
+        interfaces.push(["HTMLEmbedElement"]);
+        attributes.push(["src", "type", "width", "height"]);
+
+        //object
+        htmlElements.push("object");
+        interfaces.push(["HTMLObjectElement"]);
+        attributes.push(["data", "type", "typeMustMatch", "name", "form", "width", "height", "contentDocument", "contentWindow", "willValidate", "validity", "validationMessage", "checkValidity", "reportValidity", "setCustomValidity"]);
+
+        //param
+        htmlElements.push("param");
+        interfaces.push(["HTMLParamElement"]);
+        attributes.push(["name", "value"]);
+
+        htmlElements.push("video");
+        interfaces.push(["HTMLMediaElement", "HTMLVideoElement"]);
+        attributes.push(["width", "height", "videoWidth", "videoHeight", "poster", "error", "src", "srcObject", "currentSrc", "crossOrigin", "NETWORK_EMPTY", "NETWORK_IDLE", "NETWORK_LOADING", "NETWORK_NO_SOURCE", "networkState", "preload", "buffered", "load", "canPlayType", "HAVE_NOTHING", "HAVE_METADATA", "HAVE_CURRENT_DATA", "HAVE_FUTURE_DATA", "HAVE_ENOUGH_DATA", "readyState", "seeking", "currentTime", "fastSeek", "duration", "getStartDate", "paused", "defaultPlaybackRate", "playbackRate", "played", "seekable", "ended", "autoplay", "loop", "play", "pause", "controls", "volume", "muted", "defaultMuted", "audioTracks", "videoTracks", "textTracks", "addTextTrack"]);
+
+        htmlElements.push("audio");
+        interfaces.push(["HTMLMediaElement", "HTMLAudioElement"]);
+        attributes.push(["error", "src", "srcObject", "currentSrc", "crossOrigin", "NETWORK_EMPTY", "NETWORK_IDLE", "NETWORK_LOADING", "NETWORK_NO_SOURCE", "networkState", "preload", "buffered", "load", "canPlayType", "HAVE_NOTHING", "HAVE_METADATA", "HAVE_CURRENT_DATA", "HAVE_FUTURE_DATA", "HAVE_ENOUGH_DATA", "readyState", "seeking", "currentTime", "fastSeek", "duration", "getStartDate", "paused", "defaultPlaybackRate", "playbackRate", "played", "seekable", "ended", "autoplay", "loop", "play", "pause", "controls", "volume", "muted", "defaultMuted", "audioTracks", "videoTracks", "textTracks", "addTextTrack"]);
+
+        htmlElements.push("track");
+        interfaces.push(["HTMLTrackElement"]);
+        attributes.push(["kind", "src", "srclang", "label", "default", "NONE", "LOADING", "LOADED", "ERROR", "readyState", "track"]);
+
+        htmlElements.push("map");
+        interfaces.push(["HTMLMapElement"]);
+        attributes.push(["name", "areas", "images"]);
+
+        htmlElements.push("area");
+        interfaces.push(["HTMLAreaElement"]);
+        attributes.push(["alt", "coords", "shape", "target", "download", "rel", "relList", "hreflang", "type", "referrerPolicy", "href", "origin", "protocol", "username", "password", "host", "hostname", "port", "pathname", "search", "hash"]);
+
+        htmlElements.push("table");
+        interfaces.push(["HTMLTableElement"]);
+        attributes.push(["caption", "createCaption", "deleteCaption", "tHead", "createTHead", "deleteTHead", "tFoot", "createTFoot", "deleteTFoot", "tBodies", "createTBody", "rows", "insertRow", "deleteRow"]);
+
+        htmlElements.push("caption");
+        interfaces.push(["HTMLTableCaptionElement"]);
+        attributes.push([]);
+
+        htmlElements.push("colgroup");
+        interfaces.push(["HTMLTableColElement"]);
+        attributes.push(["span"]);
+
+        htmlElements.push("col");
+        interfaces.push(["HTMLTableColElement"]);
+        attributes.push(["span"]);
+
+        htmlElements.push("tbody");
+        interfaces.push(["HTMLTableSectionElement"]);
+        attributes.push(["rows", "insertRow", "deleteRow"]);
+
+        htmlElements.push("thead");
+        interfaces.push(["HTMLTableSectionElement"]);
+        attributes.push(["rows", "insertRow", "deleteRow"]);
+
+        htmlElements.push("tfoot");
+        interfaces.push(["HTMLTableSectionElement"]);
+        attributes.push(["rows", "insertRow", "deleteRow"]);
+
+        htmlElements.push("tr");
+        interfaces.push(["HTMLTableRowElement"]);
+        attributes.push(["rowIndex", "sectionRowIndex", "cells", "insertCell", "deleteCell"]);
+
+        htmlElements.push("td");
+        interfaces.push(["HTMLTableCellElement", "HTMLTableDataCellElement"]);
+        attributes.push(["colSpan", "rowSpan", "headers", "cellIndex"]);
+
+        htmlElements.push("th");
+        interfaces.push(["HTMLTableCellElement", "HTMLTableHeaderCellElement"]);
+        attributes.push(["colSpan", "rowSpan", "headers", "cellIndex", "scope", "abbr"]);
+
+        htmlElements.push("form");
+        interfaces.push(["HTMLFormElement"]);
+        attributes.push(["acceptCharset", "action", "autocomplete", "enctype", "encoding", "method", "name", "noValidate", "target", "elements", "length", "submit", "reset", "checkValidity", "reportValidity"]);
+
+        htmlElements.push("label");
+        interfaces.push(["HTMLLabelElement"]);
+        attributes.push(["form", "htmlFor", "control"]);
+
+        htmlElements.push("input");
+        interfaces.push(["HTMLInputElement"]);
+        attributes.push(["accept", "alt", "autocomplete", "autofocus", "defaultChecked", "checked", "dirName", "disabled", "form", "files", "formAction", "formEnctype", "formMethod", "formNoValidate", "formTarget", "height", "indeterminate", "list", "max", "maxLength", "min", "minLength", "min", "multiple", "name", "pattern", "placeholder", "readOnly", "required", "size", "src", "step", "type", "defaultValue", "value", "valueAsDate", "valueAsNumber", "width", "stepUp", "stepDown", "willValidate", "validity", "validationMessage", "checkValidity", "reportValidity", "setCustomValidity", "labels", "select", "selectionStart", "selectionEnd", "selectionDirection", "setRangeText", "setSelectionRange"]);
+
+        htmlElements.push("button");
+        interfaces.push(["HTMLButtonElement"]);
+        attributes.push(["form", "autofocus", "disabled", "form", "formAction", "formEnctype", "formMethod", "formNoValidate", "formTarget", "name", "type", "value", "willValidate", "validity", "validationMessage", "checkValidity", "reportValidity", "setCustomValidity", "labels"]);
+
+        htmlElements.push("select");
+        interfaces.push(["HTMLSelectElement"]);
+        attributes.push(["autocomplete", "autofocus", "disabled", "form", "multiple", "name", "required", "size", "type", "options", "length", "item", "namedItem", "add", "remove", "selectedOptions", "selectedIndex", "value", "willValidate", "validity", "validationMessage", "checkValidity", "reportValidity", "setCustomValidity", "labels"]);
+
+        htmlElements.push("datalist");
+        interfaces.push(["HTMLDataListElement"]);
+        attributes.push(["options"]);
+
+        htmlElements.push("optgroup");
+        interfaces.push(["HTMLOptGroupElement"]);
+        attributes.push(["disabled", "label"]);
+
+        htmlElements.push("option");
+        interfaces.push(["HTMLOptionElement"]);
+        attributes.push(["disabled", "form", "label", "defaultSelected", "selected", "value", "text", "index"]);
+
+        htmlElements.push("textarea");
+        interfaces.push(["HTMLTextAreaElement"]);
+        attributes.push(["autocomplete", "autofocus", "cols", "dirName", "disabled", "form", "maxLength", "minLength", "name", "placeholder", "readOnly", "required", "rows", "wrap", "type", "defaultValue", "value", "textLength", "type", "defaultValue", "value", "textLength", "willValidate", "validity", "validationMessage", "checkValidity", "reportValidity", "setCustomValidity", "labels", "select", "selectionStart", "selectionEnd", "selectionDirection", "setRangeText", "setSelectionRange"]);
+
+        htmlElements.push("output");
+        interfaces.push(["HTMLOutputElement"]);
+        attributes.push(["form", "name", "type", "defaultValue", "value", "willValidate", "validity", "validationMessage", "checkValidity", "reportValidity", "setCustomValidity", "labels"]);
+
+        htmlElements.push("progress");
+        interfaces.push(["HTMLProgressElement"]);
+        attributes.push(["value", "max", "position", "labels"]);
+
+        htmlElements.push("meter");
+        interfaces.push(["HTMLMeterElement"]);
+        attributes.push(["value", "min", "max", "low", "high", "optimum", "labels"]);
+
+        htmlElements.push("fieldset");
+        interfaces.push(["HTMLFieldSetElement"]);
+        attributes.push(["disabled", "form", "name", "type", "elements", "willValidate", "validity", "validationMessage", "checkValidity", "reportValidity", "setCustomValidity"]);
+
+        htmlElements.push("legend");
+        interfaces.push(["HTMLLegendElement"]);
+        attributes.push(["form"]);
+
+        htmlElements.push("details");
+        interfaces.push(["HTMLDetailsElement"]);
+        attributes.push(["open"]);
+
+        htmlElements.push("summary");
+        interfaces.push([]);
+        attributes.push([]);
+
+        htmlElements.push("dialog");
+        interfaces.push(["HTMLDialogElement"]);
+        attributes.push(["open", "returnValue", "show", "showModal", "close"]);
+
+        htmlElements.push("script");
+        interfaces.push(["HTMLScriptElement"]);
+        attributes.push(["src", "type", "charset", "async", "defer", "crossOrigin", "text", "nonce"]);
+
+        htmlElements.push("noscript");
+        interfaces.push([]);
+        attributes.push([]);
+
+        htmlElements.push("template");
+        interfaces.push(["HTMLTemplateElement"]);
+        attributes.push(["content"]);
+
+        htmlElements.push("canvas");
+        interfaces.push(["HTMLCanvasElement"]);
+        attributes.push(["width", "height", "getContext", "probablySupportsContext", "toDataURL", "toBlob"]);
+
+        var correctElements = 0;
+
+        for (var i = 0; i < htmlElements.length; i++)
+            a: {
+                var htmlElement = document.createElement(htmlElements[i]);
+                var elementInterfaces = interfaces[i];
+                var elementAttributes = attributes[i];
+                if (htmlElement instanceof HTMLUnknownElement) {
+                    console.log("<" + htmlElements[i] + "> " + false);
+                    break a;
+                }
+                for (var j = 0; j < elementInterfaces.length; j++) {
+                    if (elementInterfaces[j] in window)
+                        if (htmlElement instanceof window[elementInterfaces[j]])
+                            continue;
+                    console.log("<" + htmlElements[i] + "> " + false);
+                    break a;
+                }
+                for (var j = 0; j < elementAttributes.length; j++) {
+                    if (elementAttributes[j] in htmlElement)
+                        continue;
+                    console.log("<" + htmlElements[i] + "> " + false);
+                    break a;
+                }
+                //console.log("<" + htmlElements[i] + "> " + true);
+                correctElements++;
+            }
+        console.log("This browser correctly implements the DOM interface for " + correctElements + " out of " + htmlElements.length + " elements.");
+    </script>
+</body>
+</html>
