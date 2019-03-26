@@ -37,6 +37,7 @@
     <script src="/Browser-Test-Tool/scripts/TestHTML5Scripting.js"></script>
     <script src="/Browser-Test-Tool/scripts/TestHTML5Audio.js"></script>
     <script src="/Browser-Test-Tool/scripts/TestHTML5Video.js"></script>
+    <script src="/Browser-Test-Tool/scripts/TestHTML5ElementsImplementation.js"></script>
     <script src="/Browser-Test-Tool/scripts/TestCSSColor.js"></script>
     <script src="/Browser-Test-Tool/scripts/TestCSSNamespaces.js"></script>
     <script src="/Browser-Test-Tool/scripts/TestCSSSelectors.js"></script>
@@ -69,6 +70,7 @@
             HTML5FeatureTests.push(TestHTML5Video());
             GetTestResults(HTML5FeatureTests, "Supported Features", "tab-html-content-features", "blue");
             var HTML5ImplementationTests = [];
+            HTML5ImplementationTests.push(TestHTML5ElementsImplementation());
             GetTestResults(HTML5ImplementationTests, "Correct Implementations", "tab-html-content-implementations", "blue");
             var CSSFeatureTests = [];
             CSSFeatureTests.push(TestCSSColor());
