@@ -3,13 +3,13 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
-    <title>Title of Test</title>
+    <title>Box Model Implementation</title>
 </head>
 <body>
     <script src="https://csce-4460-term-project-group.github.io/Browser-Test-Tool/libraries/zlib.js"></script>
     <script src="https://csce-4460-term-project-group.github.io/Browser-Test-Tool/libraries/png.js"></script>
     <script>
-        var descriptions = ['margin-top'];
+        var descriptions = ["margin-top"];
         //var testStyles = ["margin-bottom.html"];
         //var testImages = ["margin-bottom.png"];
         for (var i = 0; i < descriptions.length; i++) {
@@ -32,6 +32,14 @@
                 var byteArray = new Uint8Array(arrayBuffer);
                 var pngImage = new PNG(byteArray);
                 imagePixels = pngImage.decodePixels();
+                console.log(imagePixels);
+                var canvas = document.createElement("canvas");
+                var context = canvas.getContext("2d");
+                canvas.width = canvas.height = 100;
+                var img = new ImageData(100, 100);
+                pngImage.copyToImageData(img, imagePixels);
+                context.putImageData(img, 0, 0);
+                document.body.appendChild(canvas);
             });
             var index = i;
             Promise.all([p1, p2]).then(function () {
@@ -44,7 +52,9 @@
                     img.onload = resolve;
                 }).then(function () {
                     context.drawImage(img, 0, 0);
+                    document.body.appendChild(canvas);
                     stylePixels = context.getImageData(0, 0, 100, 100).data;
+                    console.log(stylePixels);
                     for (var j = 0; j < stylePixels.length; j++)
                         if (stylePixels[j] != imagePixels[j]) {
                             console.log(descriptions[index] + " " + false);
