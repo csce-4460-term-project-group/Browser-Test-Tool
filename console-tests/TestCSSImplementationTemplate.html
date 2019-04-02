@@ -10,12 +10,10 @@
     <script src="https://csce-4460-term-project-group.github.io/Browser-Test-Tool/libraries/png.js"></script>
     <script>
         var descriptions = ["css-property"];
-        var testStyles = ["css-property.html"];
-        var testImages = ["css-property.png"];
         for (var i = 0; i < descriptions.length; i++) {
             var text, stylePixels, imagePixels;
             var requestStyle = new XMLHttpRequest();
-            requestStyle.open("GET", "https://csce-4460-term-project-group.github.io/Browser-Test-Tool/test-styles/" + testStyles[i], true);
+            requestStyle.open("GET", "https://csce-4460-term-project-group.github.io/Browser-Test-Tool/test-styles/" + descriptions[i] + ".html", true);
             requestStyle.responseType = "text";
             var p1 = new Promise(function (resolve) {
                 requestStyle.onload = resolve;
@@ -23,7 +21,7 @@
                 text = requestStyle.response;
             });
             var requestImage = new XMLHttpRequest();
-            requestImage.open("GET", "https://csce-4460-term-project-group.github.io/Browser-Test-Tool/test-images/" + testImages[i], true);
+            requestImage.open("GET", "https://csce-4460-term-project-group.github.io/Browser-Test-Tool/test-images/" + descriptions[i] + ".png", true);
             requestImage.responseType = "arraybuffer";
             var p2 = new Promise(function (resolve) {
                 requestImage.onload = resolve;
