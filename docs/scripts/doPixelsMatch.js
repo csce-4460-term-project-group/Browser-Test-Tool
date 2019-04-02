@@ -18,7 +18,7 @@ function doPixelsMatch(testStyle, testImage) {
         var byteArray = new Uint8Array(arrayBuffer);
         var pngImage = new PNG(byteArray);
         imagePixels = pngImage.decodePixels();
-        console.log(imagePixels);
+        //console.log(imagePixels);
         var canvas = document.createElement("canvas");
         var context = canvas.getContext("2d");
         canvas.width = canvas.height = 100;
@@ -40,7 +40,7 @@ function doPixelsMatch(testStyle, testImage) {
             context.drawImage(img, 0, 0);
             document.body.appendChild(canvas);
             stylePixels = context.getImageData(0, 0, 100, 100).data;
-            console.log(stylePixels);
+            //console.log(stylePixels);
             for (var j = 0; j < stylePixels.length; j++)
                 if (stylePixels[j] != imagePixels[j]) {
                     console.log(descriptions[index] + " " + false);
