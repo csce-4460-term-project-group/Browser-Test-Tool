@@ -27,7 +27,6 @@ function doPixelsMatch(description, testStyle, testImage, tolerance) {
         context.putImageData(img, 0, 0);
         document.body.appendChild(canvas);
     });
-    var index = i;
     Promise.all([p1, p2]).then(function () {
         var canvas = document.createElement("canvas");
         var context = canvas.getContext("2d");
