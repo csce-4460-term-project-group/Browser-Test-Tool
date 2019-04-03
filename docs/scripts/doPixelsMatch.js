@@ -1,4 +1,4 @@
-function doPixelsMatch(testStyle, testImage, tolerance) {
+function doPixelsMatch(description, testStyle, testImage, tolerance) {
     var text, stylePixels, imagePixels;
     var requestStyle = new XMLHttpRequest();
     requestStyle.open("GET", "https://csce-4460-term-project-group.github.io/Browser-Test-Tool/test-styles/" + testStyle + ".html", true);
@@ -53,11 +53,11 @@ function doPixelsMatch(testStyle, testImage, tolerance) {
                 if (bits > 0)
                     mismatch++;
                 if (mismatch > tolerance["mismatch"]) {
-                    console.log(descriptions[index] + " " + false);
+                    console.log(description + " " + false);
                     return;
                 }
             }
-            console.log(descriptions[index] + " " + true);
+            console.log(description + " " + true);
         });
     });
     requestStyle.send();
