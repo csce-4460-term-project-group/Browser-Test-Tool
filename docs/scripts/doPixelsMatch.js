@@ -44,8 +44,13 @@ function doPixelsMatch(testStyle, testImage, tolerance) {
             var mismatch = 0;
             if (!tolerance["mismatch"])
                 tolerance["mismatch"] = 0;
-            for (var j = 0; j < stylePixels.length; j++) {
-                if (stylePixels[j] != imagePixels[j])
+            var totalPixels = stylePixels.length / 4;
+            for (var j = 0, bits = 0; j < totalPixels; j++ , bits = 0) {
+                bits += Math.abs(stylePixels[j * 4] - imagePixels[j * 4]);
+                bits += Math.abs(stylePixels[j * 4 + 1] - imagePixels[j * 4 + 1]);
+                bits += Math.abs(stylePixels[j * 4 + 2] - imagePixels[j * 4 + 2]);
+                bits += Math.abs(stylePixels[j * 4 + 3] - imagePixels[j * 4 + 3]);
+                if (bits > 0)
                     mismatch++;
                 if (mismatch > tolerance["mismatch"]) {
                     console.log(descriptions[index] + " " + false);
