@@ -10,12 +10,12 @@
     <script src="https://csce-4460-term-project-group.github.io/Browser-Test-Tool/libraries/png.js"></script>
     <script src="https://csce-4460-term-project-group.github.io/Browser-Test-Tool/scripts/doPixelsMatch.js"></script>
     <script>
-        var descriptions = ['margin-top', 'margin-right', 'margin-bottom', 'margin-left', 'margin', 'padding-top', 'padding-right', 'padding-bottom', 'padding-left', 'padding', 'border-top-width', 'border-right-width', 'border-bottom-width', 'border-left-width', 'border-width', 'border-top-color', 'border-right-color', 'border-bottom-color', 'border-left-color', 'border-color', 'border-top-style', 'border-right-style', 'border-bottom-style', 'border-left-style', 'border-style', 'border-top', 'border-right', 'border-bottom', 'border-left', 'border'];
-        for (var i = 0; i < descriptions.length; i++)
-            if (descriptions[i] == 'border-top-color' || descriptions[i] == 'border-right-color' || descriptions[i] == 'border-bottom-color' || descriptions[i] == 'border-left-color')
-                doPixelsMatch(descriptions[i], descriptions[i], { mismatch: 10 });
+        var properties = ['margin-top', 'margin-right', 'margin-bottom', 'margin-left', 'margin', 'padding-top', 'padding-right', 'padding-bottom', 'padding-left', 'padding', 'border-top-width', 'border-right-width', 'border-bottom-width', 'border-left-width', 'border-width', 'border-top-color', 'border-right-color', 'border-bottom-color', 'border-left-color', 'border-color', 'border-top-style', 'border-right-style', 'border-bottom-style', 'border-left-style', 'border-style', 'border-top', 'border-right', 'border-bottom', 'border-left', 'border'];
+        for (var i = 0; i < properties.length; i++)
+            if (properties[i] == 'border-top-color' || properties[i] == 'border-right-color' || properties[i] == 'border-bottom-color' || properties[i] == 'border-left-color')
+                doPixelsMatch(properties[i], properties[i], { mismatch: 10 });
             else
-                doPixelsMatch(descriptions[i], descriptions[i], {});
+                doPixelsMatch(properties[i], properties[i], {});
     </script>
 </body>
 </html>
