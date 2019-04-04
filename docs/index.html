@@ -54,6 +54,7 @@
     <script src="/Browser-Test-Tool/scripts/TestCSSBasicUserInterface.js"></script>
     <script src="/Browser-Test-Tool/scripts/TestCSSNamespacesImplementation.js"></script>
     <script src="/Browser-Test-Tool/scripts/TestCSSBoxModelImplementation.js"></script>
+    <script src="/Browser-Test-Tool/scripts/TestCSSStyleAttributesImplementation.js"></script>
     <!--functions-->
     <script>
         function changeTab1() {
@@ -74,6 +75,7 @@
             });
             CSSImplementationTests.push(TestCSSNamespacesImplementation());
             CSSImplementationTests.push(TestCSSBoxModelImplementation());
+            CSSImplementationTests.push(TestCSSStyleAttributesImplementation());
             var HTML5FeatureTests = [];
             HTML5FeatureTests.push(TestHTML5Elements());
             HTML5FeatureTests.push(TestHTML5GlobalAttributes());
