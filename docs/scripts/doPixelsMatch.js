@@ -60,13 +60,21 @@ function doPixelsMatch(description, testStyle, testImage, options) {
                 if (bits > 0)
                     mismatch++;
                 if (mismatch > options["mismatch"]) {
-                    console.log(description + " " + false);
-                    checkTestsCompletedCSS();
+                    if (options["test"]) {
+                        options["test"].testDescriptionsUnsorted.push(description);
+                        options["test"].results.push(false);
+                        checkTestsCompletedCSS();
+                    } else
+                        console.log(description + " " + false);
                     return;
                 }
             }
-            console.log(description + " " + true);
-            checkTestsCompletedCSS();
+            if (options["test"]) {
+                options["test"].testDescriptionsUnsorted.push(description);
+                options["test"].results.push(true);
+                checkTestsCompletedCSS();
+            } else
+                console.log(description + " " + true);
         });
     });
     requestStyle.send();
