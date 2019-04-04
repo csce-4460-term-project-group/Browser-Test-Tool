@@ -76,8 +76,6 @@
             CSSFeatureTests.push(TestCSSStyleAttributes());
             CSSFeatureTests.push(TestCSSFonts());
             CSSFeatureTests.push(TestCSSBasicUserInterface());
-            for (var i = 0; i < CSSFeatureTests.length; i++)
-                totalTestsCSS += CSSFeatureTests[i].testDescriptions.length;
             var CSSImplementationTests = [];
             document.addEventListener("css-implementation-tests-complete", function () {
                 for (var i = 0; i < CSSImplementationTests.length; i++)
