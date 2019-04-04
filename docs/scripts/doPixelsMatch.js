@@ -3,7 +3,7 @@ var totalTestsCSS = 30, testsCompletedCSS = 0;
 function checkTestsCompletedCSS() {
     testsCompletedCSS++;
     if (testsCompletedCSS == totalTestsCSS)
-        document.dispatchEvent("css-implementation-tests-complete");
+        document.dispatchEvent(new Event("css-implementation-tests-complete"));
 }
 
 function doPixelsMatch(description, testStyle, testImage, options) {
