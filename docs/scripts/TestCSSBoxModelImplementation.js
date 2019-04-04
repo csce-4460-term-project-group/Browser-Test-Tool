@@ -5,9 +5,9 @@ function TestCSSBoxModelImplementation() {
     for (var i = 0; i < properties.length; i++) {
         test.testDescriptions.push(properties[i]);
         if (properties[i] == 'border-top-color' || properties[i] == 'border-right-color' || properties[i] == 'border-bottom-color' || properties[i] == 'border-left-color')
-            doPixelsMatch(properties[i], properties[i], properties[i], { mismatch: 10 });
+            doPixelsMatch(properties[i], properties[i], properties[i], { test: test, mismatch: 10 });
         else
-            doPixelsMatch(properties[i], properties[i], properties[i], {});
+            doPixelsMatch(properties[i], properties[i], properties[i], { test: test });
     }
     return test;
 }
