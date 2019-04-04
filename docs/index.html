@@ -65,17 +65,6 @@
         }
         function runTests(buttonClicked) {
             buttonClicked.disabled = true;
-            var CSSFeatureTests = [];
-            CSSFeatureTests.push(TestCSSColor());
-            CSSFeatureTests.push(TestCSSNamespaces());
-            CSSFeatureTests.push(TestCSSSelectors());
-            CSSFeatureTests.push(TestCSSBoxModel());
-            CSSFeatureTests.push(TestCSSVisualFormattingModel());
-            CSSFeatureTests.push(TestCSSVisualEffects());
-            CSSFeatureTests.push(TestCSSMediaQueries());
-            CSSFeatureTests.push(TestCSSStyleAttributes());
-            CSSFeatureTests.push(TestCSSFonts());
-            CSSFeatureTests.push(TestCSSBasicUserInterface());
             var CSSImplementationTests = [];
             document.addEventListener("css-implementation-tests-complete", function () {
                 for (var i = 0; i < CSSImplementationTests.length; i++)
@@ -91,11 +80,22 @@
             HTML5FeatureTests.push(TestHTML5Scripting());
             HTML5FeatureTests.push(TestHTML5Video());
             HTML5FeatureTests.push(TestHTML5Audio());
+            GetTestResults(HTML5FeatureTests, "Supported Features", "tab-html-content-features", "blue");
             var HTML5ImplementationTests = [];
             HTML5ImplementationTests.push(TestHTML5ElementsImplementation());
             HTML5ImplementationTests.push(TestHTML5EventHandlersImplementation());
-            GetTestResults(HTML5FeatureTests, "Supported Features", "tab-html-content-features", "blue");
             GetTestResults(HTML5ImplementationTests, "Correct Implementations", "tab-html-content-implementations", "blue");
+            var CSSFeatureTests = [];
+            CSSFeatureTests.push(TestCSSColor());
+            CSSFeatureTests.push(TestCSSNamespaces());
+            CSSFeatureTests.push(TestCSSSelectors());
+            CSSFeatureTests.push(TestCSSBoxModel());
+            CSSFeatureTests.push(TestCSSVisualFormattingModel());
+            CSSFeatureTests.push(TestCSSVisualEffects());
+            CSSFeatureTests.push(TestCSSMediaQueries());
+            CSSFeatureTests.push(TestCSSStyleAttributes());
+            CSSFeatureTests.push(TestCSSFonts());
+            CSSFeatureTests.push(TestCSSBasicUserInterface());
             GetTestResults(CSSFeatureTests, "Supported Features", "tab-css-content-features", "green");
             document.getElementById("tab-html-button").style.display = "inline";
             document.getElementById("tab-css-button").style.display = "inline";
