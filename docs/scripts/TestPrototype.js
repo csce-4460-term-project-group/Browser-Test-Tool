@@ -6,3 +6,16 @@ function BrowserTest() {
 BrowserTest.prototype.title;
 BrowserTest.prototype.testDescriptions;
 BrowserTest.prototype.results;
+BrowserTest.prototype.testDescriptionsUnsorted;
+BrowserTest.prototype.sort = function () {
+    if (this.testDescriptionsUnsorted) {
+        var resultsSorted = [];
+        for (var i = 0; i < this.testDescriptions.length; i++)
+            for (var j = 0; j < this.testDescriptionsUnsorted.length; j++)
+                if (this.testDescriptionsUnsorted[j] == this.testDescriptions[i]) {
+                    resultsSorted.push(this.results[j]);
+                    break;
+                }
+        this.results = resultsSorted;
+    }
+};
