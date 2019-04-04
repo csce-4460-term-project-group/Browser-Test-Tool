@@ -27,13 +27,15 @@ function doPixelsMatch(description, testStyle, testImage, options) {
         var pngImage = new PNG(byteArray);
         imagePixels = pngImage.decodePixels();
         //console.log(imagePixels);
-        var canvas = document.createElement("canvas");
-        var context = canvas.getContext("2d");
-        canvas.width = canvas.height = 100;
-        var img = new ImageData(100, 100);
-        pngImage.copyToImageData(img, imagePixels);
-        context.putImageData(img, 0, 0);
-        document.body.appendChild(canvas);
+        if (!options["test"]) {
+            var canvas = document.createElement("canvas");
+            var context = canvas.getContext("2d");
+            canvas.width = canvas.height = 100;
+            var img = new ImageData(100, 100);
+            pngImage.copyToImageData(img, imagePixels);
+            context.putImageData(img, 0, 0);
+            document.body.appendChild(canvas);
+        }
     });
     Promise.all([p1, p2]).then(function () {
         var canvas = document.createElement("canvas");
@@ -45,7 +47,8 @@ function doPixelsMatch(description, testStyle, testImage, options) {
             img.onload = resolve;
         }).then(function () {
             context.drawImage(img, 0, 0);
-            document.body.appendChild(canvas);
+            if (!options["test"])
+                document.body.appendChild(canvas);
             stylePixels = context.getImageData(0, 0, 100, 100).data;
             //console.log(stylePixels);
             var mismatch = 0;
