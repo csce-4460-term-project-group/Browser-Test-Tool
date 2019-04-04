@@ -64,19 +64,6 @@
         }
         function runTests(buttonClicked) {
             buttonClicked.disabled = true;
-            var HTML5FeatureTests = [];
-            HTML5FeatureTests.push(TestHTML5Elements());
-            HTML5FeatureTests.push(TestHTML5GlobalAttributes());
-            HTML5FeatureTests.push(TestHTML5EventHandlers());
-            HTML5FeatureTests.push(TestHTML5InputTypes());
-            HTML5FeatureTests.push(TestHTML5Scripting());
-            HTML5FeatureTests.push(TestHTML5Video());
-            HTML5FeatureTests.push(TestHTML5Audio());
-            GetTestResults(HTML5FeatureTests, "Supported Features", "tab-html-content-features", "blue");
-            var HTML5ImplementationTests = [];
-            HTML5ImplementationTests.push(TestHTML5ElementsImplementation());
-            HTML5ImplementationTests.push(TestHTML5EventHandlersImplementation());
-            GetTestResults(HTML5ImplementationTests, "Correct Implementations", "tab-html-content-implementations", "blue");
             var CSSFeatureTests = [];
             CSSFeatureTests.push(TestCSSColor());
             CSSFeatureTests.push(TestCSSNamespaces());
@@ -88,9 +75,28 @@
             CSSFeatureTests.push(TestCSSStyleAttributes());
             CSSFeatureTests.push(TestCSSFonts());
             CSSFeatureTests.push(TestCSSBasicUserInterface());
-            GetTestResults(CSSFeatureTests, "Supported Features", "tab-css-content-features", "green");
+            for (var i = 0; i < CSSFeatureTests.length; i++)
+                totalTestsCSS += CSSFeatureTests[i].testDescriptions.length;
             var CSSImplementationTests = [];
-            GetTestResults(CSSImplementationTests, "Correct Implementations", "tab-css-content-implementations", "green");
+            document.addEventListener("css-implementation-tests-complete", function () {
+                for (var i = 0; i < CSSImplementationTests.length; i++)
+                    CSSImplementationTests[i].sort();
+                GetTestResults(CSSImplementationTests, "Correct Implementations", "tab-css-content-implementations", "green");
+            });
+            var HTML5FeatureTests = [];
+            HTML5FeatureTests.push(TestHTML5Elements());
+            HTML5FeatureTests.push(TestHTML5GlobalAttributes());
+            HTML5FeatureTests.push(TestHTML5EventHandlers());
+            HTML5FeatureTests.push(TestHTML5InputTypes());
+            HTML5FeatureTests.push(TestHTML5Scripting());
+            HTML5FeatureTests.push(TestHTML5Video());
+            HTML5FeatureTests.push(TestHTML5Audio());
+            var HTML5ImplementationTests = [];
+            HTML5ImplementationTests.push(TestHTML5ElementsImplementation());
+            HTML5ImplementationTests.push(TestHTML5EventHandlersImplementation());
+            GetTestResults(HTML5FeatureTests, "Supported Features", "tab-html-content-features", "blue");
+            GetTestResults(HTML5ImplementationTests, "Correct Implementations", "tab-html-content-implementations", "blue");
+            GetTestResults(CSSFeatureTests, "Supported Features", "tab-css-content-features", "green");
             document.getElementById("tab-html-button").style.display = "inline";
             document.getElementById("tab-css-button").style.display = "inline";
             document.getElementById("tab-html-content").style.display = "block";
