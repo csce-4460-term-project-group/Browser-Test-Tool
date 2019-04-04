@@ -2,6 +2,7 @@ function BrowserTest() {
     this.title = "";
     this.testDescriptions = [];
     this.results = [];
+    this.testDescriptionsUnsorted = [];
 }
 BrowserTest.prototype.title;
 BrowserTest.prototype.testDescriptions;
