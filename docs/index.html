@@ -52,6 +52,7 @@
     <script src="/Browser-Test-Tool/scripts/TestCSSStyleAttributes.js"></script>
     <script src="/Browser-Test-Tool/scripts/TestCSSFonts.js"></script>
     <script src="/Browser-Test-Tool/scripts/TestCSSBasicUserInterface.js"></script>
+    <script src="/Browser-Test-Tool/scripts/TestCSSBoxModelImplementation.js"></script>
     <!--functions-->
     <script>
         function changeTab1() {
@@ -83,6 +84,7 @@
                     CSSImplementationTests[i].sort();
                 GetTestResults(CSSImplementationTests, "Correct Implementations", "tab-css-content-implementations", "green");
             });
+            CSSImplementationTests.push(TestCSSBoxModelImplementation());
             var HTML5FeatureTests = [];
             HTML5FeatureTests.push(TestHTML5Elements());
             HTML5FeatureTests.push(TestHTML5GlobalAttributes());
