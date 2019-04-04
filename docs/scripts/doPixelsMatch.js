@@ -1,3 +1,11 @@
+var totalTestsCSS = 0, testsCompletedCSS = 0;
+
+function checkTestsCompletedCSS() {
+    testsCompletedCSS++;
+    if (testsCompletedCSS == totalTestsCSS)
+        document.dispatchEvent("css-implementation-tests-complete");
+}
+
 function doPixelsMatch(description, testStyle, testImage, options) {
     var text, stylePixels, imagePixels;
     var requestStyle = new XMLHttpRequest();
@@ -53,10 +61,12 @@ function doPixelsMatch(description, testStyle, testImage, options) {
                     mismatch++;
                 if (mismatch > options["mismatch"]) {
                     console.log(description + " " + false);
+                    checkTestsCompletedCSS();
                     return;
                 }
             }
             console.log(description + " " + true);
+            checkTestsCompletedCSS();
         });
     });
     requestStyle.send();
