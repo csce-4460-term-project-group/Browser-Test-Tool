@@ -15,7 +15,10 @@
         for (var i = 0; i < descriptions.length; i++)
             properties.push("Color" + i);
         for (var i = 0; i < descriptions.length; i++)
-            doPixelsMatch(descriptions[i], properties[i], properties[i], {});
+            if (properties[i] == "Color0" || properties[i] == "Color1")
+                doPixelsMatch(descriptions[i], properties[i], properties[i], { mismatch: 3 });
+            else
+                doPixelsMatch(descriptions[i], properties[i], properties[i], {});
     </script>
 </body>
 </html>
