@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Title of Test</title>
+</head>
+<body>
+    <script src="https://csce-4460-term-project-group.github.io/Browser-Test-Tool/libraries/zlib.js"></script>
+    <script src="https://csce-4460-term-project-group.github.io/Browser-Test-Tool/libraries/png.js"></script>
+    <script src="https://csce-4460-term-project-group.github.io/Browser-Test-Tool/scripts/doPixelsMatch.js"></script>
+    <script>
+        var descriptions = ['color', 'opacity', 'Basic color keywords', 'rgb()', 'rgba()', 'transparent', 'hsl()', 'hsla()', 'Extended color keywords', 'currentColor'];
+        var properties = [];
+        for (var i = 0; i < descriptions.length; i++)
+            properties.push("Color" + i);
+        for (var i = 0; i < descriptions.length; i++)
+            doPixelsMatch(descriptions[i], properties[i], properties[i], {});
+    </script>
+</body>
+</html>
