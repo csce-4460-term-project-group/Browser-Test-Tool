@@ -1,4 +1,4 @@
-var totalTestsCSS = 48, testsCompletedCSS = 0;
+var totalTestsCSS = 58, testsCompletedCSS = 0;
 
 function checkTestsCompletedCSS() {
     testsCompletedCSS++;
