@@ -1,9 +1,39 @@
-var totalTestsCSS = 48, testsCompletedCSS = 0;
+var totalTestsCSS = 58, testsCompletedCSS = 0;
 
 function checkTestsCompletedCSS() {
     testsCompletedCSS++;
     if (testsCompletedCSS == totalTestsCSS)
         document.dispatchEvent(new Event("css-implementation-tests-complete"));
+}
+
+function comparePixels(stylePixels, imagePixels, x, y, radius) {
+    if (x - radius < 0)
+        var xMin = 0;
+    else
+        var xMin = x - radius;
+    if (x + radius > 99)
+        var xMax = 99;
+    else
+        var xMax = x + radius;
+    if (y - radius < 0)
+        var yMin = 0;
+    else
+        var yMin = y - radius;
+    if (y + radius > 99)
+        var yMax = 99;
+    else
+        var yMax = y + radius;
+    var comparedPixels = [], bits;
+    for (var i = xMin; i <= xMax; i++)
+        for (var j = yMin; j <= yMax; j++) {
+            bits = 0;
+            bits += Math.abs(stylePixels[(i * 100 + j) * 4] - imagePixels[(i * 100 + j) * 4]);
+            bits += Math.abs(stylePixels[(i * 100 + j) * 4 + 1] - imagePixels[(i * 100 + j) * 4 + 1]);
+            bits += Math.abs(stylePixels[(i * 100 + j) * 4 + 2] - imagePixels[(i * 100 + j) * 4 + 2]);
+            bits += Math.abs(stylePixels[(i * 100 + j) * 4 + 3] - imagePixels[(i * 100 + j) * 4 + 3]);
+            comparedPixels.push(bits);
+        }
+    return Math.min(comparedPixels);
 }
 
 function doPixelsMatch(description, testStyle, testImage, options) {
@@ -54,24 +84,22 @@ function doPixelsMatch(description, testStyle, testImage, options) {
             var mismatch = 0;
             if (!options["mismatch"])
                 options["mismatch"] = 0;
-            var totalPixels = stylePixels.length / 4;
-            for (var j = 0, bits = 0; j < totalPixels; j++ , bits = 0) {
-                bits += Math.abs(stylePixels[j * 4] - imagePixels[j * 4]);
-                bits += Math.abs(stylePixels[j * 4 + 1] - imagePixels[j * 4 + 1]);
-                bits += Math.abs(stylePixels[j * 4 + 2] - imagePixels[j * 4 + 2]);
-                bits += Math.abs(stylePixels[j * 4 + 3] - imagePixels[j * 4 + 3]);
-                if (bits > 0)
-                    mismatch++;
-                if (mismatch > options["mismatch"]) {
-                    if (options["test"]) {
-                        options["test"].testDescriptionsUnsorted.push(description);
-                        options["test"].results.push(false);
-                        checkTestsCompletedCSS();
-                    } else
-                        console.log(description + " " + false);
-                    return;
+            if (!options["radius"])
+                options["radius"] = 0;
+            for (var j = 0; j < 100; j++)
+                for (var k = 0; k < 100; k++) {
+                    if (comparePixels(stylePixels, imagePixels, j, k, options["radius"]) > 0)
+                        mismatch++;
+                    if (mismatch > options["mismatch"]) {
+                        if (options["test"]) {
+                            options["test"].testDescriptionsUnsorted.push(description);
+                            options["test"].results.push(false);
+                            checkTestsCompletedCSS();
+                        } else
+                            console.log(description + " " + false);
+                        return;
+                    }
                 }
-            }
             if (options["test"]) {
                 options["test"].testDescriptionsUnsorted.push(description);
                 options["test"].results.push(true);
