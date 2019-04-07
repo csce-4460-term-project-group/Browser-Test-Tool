@@ -23,16 +23,16 @@ function comparePixels(stylePixels, imagePixels, x, y, radius) {
         var yMax = 99;
     else
         var yMax = y + radius;
-    var comparedPixels = [];
-    for (var i = xMin; i <= xMax; i++) {
-        for (var j = yMin, bits = 0; j <= yMax; j++ , bits = 0) {
+    var comparedPixels = [], bits;
+    for (var i = xMin; i <= xMax; i++)
+        for (var j = yMin; j <= yMax; j++) {
+            bits = 0;
             bits += Math.abs(stylePixels[i * 100 + j * 4] - imagePixels[i * 100 + j * 4]);
             bits += Math.abs(stylePixels[i * 100 + j * 4 + 1] - imagePixels[i * 100 + j * 4 + 1]);
             bits += Math.abs(stylePixels[i * 100 + j * 4 + 2] - imagePixels[i * 100 + j * 4 + 2]);
             bits += Math.abs(stylePixels[i * 100 + j * 4 + 3] - imagePixels[i * 100 + j * 4 + 3]);
+            comparedPixels.push(bits);
         }
-        comparedPixels.push(bits);
-    }
     return Math.min(comparedPixels);
 }
 
