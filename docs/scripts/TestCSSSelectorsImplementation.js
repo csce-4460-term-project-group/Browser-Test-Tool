@@ -8,11 +8,11 @@ function TestCSSSelectorsImplementation() {
     for (var i = 0; i < selectors.length; i++) {
         test.testDescriptions.push(selectors[i]);
         if (selectors[i] == 'E::first-line' || selectors[i] == 'E::first-letter' || selectors[i] == 'E::before' || selectors[i] == 'E::after')
-            doPixelsMatch(selectors[i], "Selectors" + i, properties[i], { mismatch: 6, radius: 1 });
+            doPixelsMatch(selectors[i], "Selectors" + i, properties[i], { test: test, mismatch: 6, radius: 1 });
         else if (selectors[i] == 'E:checked')
-            doPixelsMatch(selectors[i], "Selectors" + i, properties[i], { mismatch: 2500 });
+            doPixelsMatch(selectors[i], "Selectors" + i, properties[i], { test: test, mismatch: 2500 });
         else
-            doPixelsMatch(selectors[i], "Selectors" + i, properties[i], {});
+            doPixelsMatch(selectors[i], "Selectors" + i, properties[i], { test: test });
     }
     return test;
 }
