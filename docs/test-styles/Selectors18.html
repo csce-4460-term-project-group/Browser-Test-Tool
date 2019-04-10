@@ -7,7 +7,7 @@
             float: left;
         }
 
-            .E:only-of-type {
+            .E:only-child {
                 background-color: #00FF00;
                 width: 50px;
                 height: 50px;
@@ -17,8 +17,8 @@
     <foreignObject width="100%" height="100%">
         <div xmlns="http://www.w3.org/1999/xhtml" style="width:100px;height:100px;background-color:#FFFFFF;">
             <div class="E"></div>
+            <div class="E"><div class="E"></div></div>
             <div class="E"></div>
-            <span class="E"></span>
             <div class="E"></div>
         </div>
     </foreignObject>
