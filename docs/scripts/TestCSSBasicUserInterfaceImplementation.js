@@ -5,7 +5,7 @@ function TestCSSBasicUserInterfaceImplementation() {
     for (var i = 0; i < properties.length; i++) {
         test.testDescriptions.push(properties[i]);
         if (properties[i] == 'text-overflow')
-            doPixelsMatch(properties[i], properties[i], properties[i], { test: test, mismatch: 175 });
+            doPixelsMatch(properties[i], properties[i], properties[i], { test: test, mismatch: 175, radius: 1 });
         else
             doPixelsMatch(properties[i], properties[i], properties[i], { test: test });
     }

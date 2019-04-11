@@ -13,7 +13,7 @@
         var properties = ['box-sizing', 'outline', 'outline-width', 'outline-style', 'outline-color', 'outline-offset', 'text-overflow'];
         for (var i = 0; i < properties.length; i++)
             if (properties[i] == 'text-overflow')
-                doPixelsMatch(properties[i], properties[i], properties[i], { mismatch: 175 });
+                doPixelsMatch(properties[i], properties[i], properties[i], { mismatch: 175, radius: 1 });
             else
                 doPixelsMatch(properties[i], properties[i], properties[i], {});
     </script>
