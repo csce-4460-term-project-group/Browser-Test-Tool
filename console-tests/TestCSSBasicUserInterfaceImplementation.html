@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Basic User Interface Implementation</title>
+</head>
+<body>
+    <script src="https://csce-4460-term-project-group.github.io/Browser-Test-Tool/libraries/zlib.js"></script>
+    <script src="https://csce-4460-term-project-group.github.io/Browser-Test-Tool/libraries/png.js"></script>
+    <script src="https://csce-4460-term-project-group.github.io/Browser-Test-Tool/scripts/doPixelsMatch.js"></script>
+    <script>
+        var properties = ['box-sizing', 'outline', 'outline-width', 'outline-style', 'outline-color', 'outline-offset', 'text-overflow'];
+        for (var i = 0; i < properties.length; i++)
+            if (properties[i] == 'text-overflow')
+                doPixelsMatch(properties[i], properties[i], properties[i], { mismatch: 175 });
+            else
+                doPixelsMatch(properties[i], properties[i], properties[i], {});
+    </script>
+</body>
+</html>
