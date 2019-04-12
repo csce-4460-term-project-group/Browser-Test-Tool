@@ -16,7 +16,7 @@ button:hover {
 
 @media (min-device-width:320px) {
     button {
-        font-size: large;
+        font-size: x-large;
     }
 }
 
