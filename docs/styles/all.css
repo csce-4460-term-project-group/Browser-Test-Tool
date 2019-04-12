@@ -11,9 +11,15 @@ h1 {
 }
 
 button {
-    font-size: xx-large;
+    font-size: x-large;
 }
 
     button:hover {
         cursor: pointer;
     }
+
+@media (min-width:600px) {
+    button {
+        font-size: xx-large;
+    }
+}
