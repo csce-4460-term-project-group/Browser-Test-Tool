@@ -51,6 +51,7 @@ function GetTestResults(tests, testType, divId, color) {
     title.style.paddingTop = "16pt";
     title.style.paddingBottom = "16pt";
     title.style.paddingLeft = "16pt";
+    title.style.fontSize = document.getElementById("tab-html-button").style.fontSize;
     title.style.color = "#FFFFFF";
     title.textContent = testType;
     var score = document.createElement("span");
@@ -58,6 +59,7 @@ function GetTestResults(tests, testType, divId, color) {
     score.style.paddingTop = "16pt";
     score.style.paddingBottom = "16pt";
     score.style.paddingRight = "16pt";
+    score.style.fontSize = document.getElementById("tab-html-button").style.fontSize;
     score.style.color = "#FFFFFF";
     score.textContent = totalTestsPassed + "/" + totalTests;
     var tabContent = document.getElementById(divId);
