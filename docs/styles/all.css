@@ -14,14 +14,14 @@ button:hover {
     cursor: pointer;
 }
 
-@media (max-device-width) {
-    button {
-        font-size: xx-large;
-    }
-}
-
 @media (max-device-width:1024px) {
     button {
         font-size: x-large;
+    }
+}
+
+@media (min-device-width:1025px) {
+    button {
+        font-size: xx-large;
     }
 }
