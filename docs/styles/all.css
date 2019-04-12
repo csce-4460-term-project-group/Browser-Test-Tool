@@ -10,13 +10,15 @@ h1 {
     color: #FFFFFF;
 }
 
-button {
-    font-size: x-large;
+button:hover {
+    cursor: pointer;
 }
 
-    button:hover {
-        cursor: pointer;
+@media (min-device-width:320px) {
+    button {
+        font-size: large;
     }
+}
 
 @media (min-device-width:600px) {
     button {
