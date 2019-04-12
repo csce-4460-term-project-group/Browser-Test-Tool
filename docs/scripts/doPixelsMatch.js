@@ -27,10 +27,10 @@ function comparePixels(stylePixels, imagePixels, x, y, radius) {
     for (var i = xMin; i <= xMax; i++)
         for (var j = yMin; j <= yMax; j++) {
             bits = 0;
-            bits += Math.abs(stylePixels[(i * 100 + j) * 4] - imagePixels[(i * 100 + j) * 4]);
-            bits += Math.abs(stylePixels[(i * 100 + j) * 4 + 1] - imagePixels[(i * 100 + j) * 4 + 1]);
-            bits += Math.abs(stylePixels[(i * 100 + j) * 4 + 2] - imagePixels[(i * 100 + j) * 4 + 2]);
-            bits += Math.abs(stylePixels[(i * 100 + j) * 4 + 3] - imagePixels[(i * 100 + j) * 4 + 3]);
+            bits += Math.abs(stylePixels[(i * 100 + j) * 4] - imagePixels[(x * 100 + y) * 4]);
+            bits += Math.abs(stylePixels[(i * 100 + j) * 4 + 1] - imagePixels[(x * 100 + y) * 4 + 1]);
+            bits += Math.abs(stylePixels[(i * 100 + j) * 4 + 2] - imagePixels[(x * 100 + y) * 4 + 2]);
+            bits += Math.abs(stylePixels[(i * 100 + j) * 4 + 3] - imagePixels[(x * 100 + y) * 4 + 3]);
             comparedPixels.push(bits);
         }
     return Math.min(comparedPixels);
