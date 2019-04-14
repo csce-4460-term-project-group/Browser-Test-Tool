@@ -15,14 +15,18 @@ function TestHTML5AudioImplementation() {
                 parameters["test"].testDescriptionsUnsorted.push(parameters["format"]);
                 parameters["test"].results.push(true);
                 testsCompletedHTML5Audio++;
-                if (testsCompletedHTML5Audio == totalTestsHTML5Audio)
+                if (testsCompletedHTML5Audio == totalTestsHTML5Audio) {
                     parameters["test"].sort();
+                    document.dispatchEvent(new Event("html-5-implementation-tests-complete"));
+                }
             }).catch(function () {
                 parameters["test"].testDescriptionsUnsorted.push(parameters["format"]);
                 parameters["test"].results.push(false);
                 testsCompletedHTML5Audio++;
-                if (testsCompletedHTML5Audio == totalTestsHTML5Audio)
+                if (testsCompletedHTML5Audio == totalTestsHTML5Audio) {
                     parameters["test"].sort();
+                    document.dispatchEvent(new Event("html-5-implementation-tests-complete"));
+                }
             });
         }({ test: test, audio: audio, format: formats[i] }));
     }
