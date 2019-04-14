@@ -12,13 +12,13 @@ function TestHTML5AudioImplementation() {
         audio.addEventListener("canplaythrough", function (parameters) {
             var promise = parameters["audio"].play();
             promise.then(function () {
-                parameters["test"].testDescriptionsUnsorted(parameters["format"]);
+                parameters["test"].testDescriptionsUnsorted.push(parameters["format"]);
                 parameters["test"].results.push(true);
                 testsCompletedHTML5Audio++;
                 if (testsCompletedHTML5Audio == totalTestsHTML5Audio)
                     parameters["test"].sort();
             }).catch(function () {
-                parameters["test"].testDescriptionsUnsorted(parameters["format"]);
+                parameters["test"].testDescriptionsUnsorted.push(parameters["format"]);
                 parameters["test"].results.push(false);
                 testsCompletedHTML5Audio++;
                 if (testsCompletedHTML5Audio == totalTestsHTML5Audio)
