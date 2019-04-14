@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Test HTML 5 Video Implementation</title>
+</head>
+<body>
+    <button onclick="testVideo()">Test HTML 5 Video</button>
+    <script>
+        function testVideo() {
+            var formats = ["MP4 (AVC/H.264)", "MP4 (HEVC/H.265)", "Ogg (Theora)", "WebM (VP8)", "WebM (VP9)"];
+            var files = ["video-h264.mp4", "video-h265.mp4", "video-theora.ogv", "video-vp8.webm", "video-vp9.webm"];
+            for (var i = 0; i < formats.length; i++) {
+                var video = document.createElement("video");
+                video.src = "https://csce-4460-term-project-group.github.io/Browser-Test-Tool/test-video/" + files[i];
+                video.volume = 0;
+                video.addEventListener("canplaythrough", function (parameters) {
+                    var promise = parameters["video"].play();
+                    promise.then(function () {
+                        console.log(parameters["format"] + " " + true);
+                    }).catch(function () {
+                        console.log(parameters["format"] + " " + false);
+                    });
+                }({ video: video, format: formats[i] }));
+            }
+        }
+    </script>
+</body>
+</html>
