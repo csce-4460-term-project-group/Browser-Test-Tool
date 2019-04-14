@@ -97,12 +97,10 @@
             HTML5FeatureTests.push(TestHTML5Scripting());
             HTML5FeatureTests.push(TestHTML5Video());
             HTML5FeatureTests.push(TestHTML5Audio());
-            GetTestResults(HTML5FeatureTests, "Supported Features", "tab-html-content-features", "blue");
             var HTML5ImplementationTests = [];
             HTML5ImplementationTests.push(TestHTML5ElementsImplementation());
             HTML5ImplementationTests.push(TestHTML5EventHandlersImplementation());
             HTML5ImplementationTests.push(TestHTML5AudioImplementation());
-            GetTestResults(HTML5ImplementationTests, "Correct Implementations", "tab-html-content-implementations", "blue");
             var CSSFeatureTests = [];
             CSSFeatureTests.push(TestCSSColor());
             CSSFeatureTests.push(TestCSSNamespaces());
@@ -114,7 +112,9 @@
             CSSFeatureTests.push(TestCSSStyleAttributes());
             CSSFeatureTests.push(TestCSSFonts());
             CSSFeatureTests.push(TestCSSBasicUserInterface());
+            GetTestResults(HTML5FeatureTests, "Supported Features", "tab-html-content-features", "blue");
             GetTestResults(CSSFeatureTests, "Supported Features", "tab-css-content-features", "green");
+            GetTestResults(HTML5ImplementationTests, "Correct Implementations", "tab-html-content-implementations", "blue");
             document.getElementById("tab-html-button").style.display = "inline";
             document.getElementById("tab-css-button").style.display = "inline";
             document.getElementById("tab-html-content").style.display = "block";
