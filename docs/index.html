@@ -42,6 +42,7 @@
     <script src="/Browser-Test-Tool/scripts/TestHTML5Audio.js"></script>
     <script src="/Browser-Test-Tool/scripts/TestHTML5ElementsImplementation.js"></script>
     <script src="/Browser-Test-Tool/scripts/TestHTML5EventHandlersImplementation.js"></script>
+    <script src="/Browser-Test-Tool/scripts/TestHTML5AudioImplementation.js"></script>
     <script src="/Browser-Test-Tool/scripts/TestCSSColor.js"></script>
     <script src="/Browser-Test-Tool/scripts/TestCSSNamespaces.js"></script>
     <script src="/Browser-Test-Tool/scripts/TestCSSSelectors.js"></script>
@@ -100,6 +101,7 @@
             var HTML5ImplementationTests = [];
             HTML5ImplementationTests.push(TestHTML5ElementsImplementation());
             HTML5ImplementationTests.push(TestHTML5EventHandlersImplementation());
+            HTML5ImplementationTests.push(TestHTML5AudioImplementation());
             GetTestResults(HTML5ImplementationTests, "Correct Implementations", "tab-html-content-implementations", "blue");
             var CSSFeatureTests = [];
             CSSFeatureTests.push(TestCSSColor());

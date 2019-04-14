@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Test HTML 5 Audio Implementation</title>
+</head>
+<body>
+    <button onclick="testAudio()">Test HTML 5 Audio</button>
+    <script>
+        function testAudio() {
+            var formats = ["MP3", "Ogg", "WAV"];
+            var files = ["audio.mp3", "audio.ogg", "audio.wav"];
+            for (var i = 0; i < formats.length; i++) {
+                var audio = new Audio("https://csce-4460-term-project-group.github.io/Browser-Test-Tool/test-audio/" + files[i]);
+                audio.volume = 0;
+                audio.addEventListener("canplaythrough", function (parameters) {
+                    var promise = parameters["audio"].play();
+                    promise.then(function () {
+                        console.log(parameters["format"] + " " + true);
+                    }).catch(function () {
+                        console.log(parameters["format"] + " " + false);
+                    });
+                }({ audio: audio, format: formats[i] }));
+            }
+        }
+    </script>
+</body>
+</html>
