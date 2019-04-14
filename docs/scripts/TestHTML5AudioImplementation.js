@@ -17,7 +17,6 @@ function TestHTML5AudioImplementation() {
                 testsCompletedHTML5Audio++;
                 if (testsCompletedHTML5Audio == totalTestsHTML5Audio) {
                     parameters["test"].sort();
-                    document.dispatchEvent(new Event("html-5-implementation-tests-complete"));
                     if (testsCompletedHTML5Video + testsCompletedHTML5Audio == totalTestsHTML5Video + totalTestsHTML5Audio)
                         document.dispatchEvent(new Event("html-5-implementation-tests-complete"));
                 }
@@ -27,7 +26,6 @@ function TestHTML5AudioImplementation() {
                 testsCompletedHTML5Audio++;
                 if (testsCompletedHTML5Audio == totalTestsHTML5Audio) {
                     parameters["test"].sort();
-                    document.dispatchEvent(new Event("html-5-implementation-tests-complete"));
                     if (testsCompletedHTML5Video + testsCompletedHTML5Audio == totalTestsHTML5Video + totalTestsHTML5Audio)
                         document.dispatchEvent(new Event("html-5-implementation-tests-complete"));
                 }

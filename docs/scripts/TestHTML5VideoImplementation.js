@@ -18,7 +18,6 @@ function TestHTML5VideoImplementation() {
                 testsCompletedHTML5Video++;
                 if (testsCompletedHTML5Video == totalTestsHTML5Video) {
                     parameters["test"].sort();
-                    document.dispatchEvent(new Event("html-5-implementation-tests-complete"));
                     if (testsCompletedHTML5Video + testsCompletedHTML5Audio == totalTestsHTML5Video + totalTestsHTML5Audio)
                         document.dispatchEvent(new Event("html-5-implementation-tests-complete"));
                 }
