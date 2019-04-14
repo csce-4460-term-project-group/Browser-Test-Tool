@@ -52,7 +52,7 @@ function doPixelsMatch(description, testStyle, testImage, options) {
     var p2 = new Promise(function (resolve) {
         requestImage.onload = resolve;
     }).then(function () {
-        arrayBuffer = requestImage.response;
+        var arrayBuffer = requestImage.response;
         var byteArray = new Uint8Array(arrayBuffer);
         var pngImage = new PNG(byteArray);
         imagePixels = pngImage.decodePixels();
