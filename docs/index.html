@@ -101,7 +101,7 @@
             var HTML5ImplementationTests = [];
             document.addEventListener("html-5-implementation-tests-complete", function () {
                 GetTestResults(HTML5ImplementationTests, "Correct Implementations", "tab-html-content-implementations", "blue");
-            }, false);
+            });
             HTML5ImplementationTests.push(TestHTML5ElementsImplementation());
             HTML5ImplementationTests.push(TestHTML5EventHandlersImplementation());
             HTML5ImplementationTests.push(TestHTML5AudioImplementation());
