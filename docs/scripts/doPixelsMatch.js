@@ -37,7 +37,7 @@ function comparePixels(stylePixels, imagePixels, x, y, radius) {
 }
 
 function doPixelsMatch(description, testStyle, testImage, options) {
-    var text, stylePixels, imagePixels;
+    var text, stylePixels, imagePixels, styleCanvas, imageCanvas;
     var requestStyle = new XMLHttpRequest();
     requestStyle.open("GET", "https://csce-4460-term-project-group.github.io/Browser-Test-Tool/test-styles/" + testStyle + ".html", true);
     requestStyle.responseType = "text";
@@ -58,27 +58,28 @@ function doPixelsMatch(description, testStyle, testImage, options) {
         imagePixels = pngImage.decodePixels();
         //console.log(imagePixels);
         if (!options["test"]) {
-            var canvas = document.createElement("canvas");
-            var context = canvas.getContext("2d");
-            canvas.width = canvas.height = 100;
+            imageCanvas = document.createElement("canvas");
+            var context = imageCanvas.getContext("2d");
+            imageCanvas.width = imageCanvas.height = 100;
             var img = new ImageData(100, 100);
             pngImage.copyToImageData(img, imagePixels);
             context.putImageData(img, 0, 0);
-            document.body.appendChild(canvas);
         }
     });
     Promise.all([p1, p2]).then(function () {
-        var canvas = document.createElement("canvas");
-        var context = canvas.getContext("2d");
-        canvas.width = canvas.height = 100;
+        styleCanvas = document.createElement("canvas");
+        var context = styleCanvas.getContext("2d");
+        styleCanvas.width = styleCanvas.height = 100;
         var img = document.createElement("img");
         img.src = "data:image/svg+xml," + encodeURIComponent(text);
         new Promise(function (resolve) {
             img.onload = resolve;
         }).then(function () {
             context.drawImage(img, 0, 0);
-            if (!options["test"])
-                document.body.appendChild(canvas);
+            if (!options["test"]) {
+                document.body.appendChild(styleCanvas);
+                document.body.appendChild(imageCanvas);
+            }
             stylePixels = context.getImageData(0, 0, 100, 100).data;
             //console.log(stylePixels);
             var mismatch = 0;
