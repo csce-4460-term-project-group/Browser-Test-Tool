@@ -37,7 +37,7 @@ function comparePixels(stylePixels, imagePixels, x, y, radius) {
 }
 
 function doPixelsMatch(description, testStyle, testImage, options) {
-    var text, stylePixels, imagePixels, styleCanvas, imageCanvas;
+    var text, stylePixels, imagePixels, styleCanvas, imageCanvas, styleHash, imageHash;
     var requestStyle = new XMLHttpRequest();
     requestStyle.open("GET", "https://csce-4460-term-project-group.github.io/Browser-Test-Tool/test-styles/" + testStyle + ".html", true);
     requestStyle.responseType = "text";
@@ -65,6 +65,13 @@ function doPixelsMatch(description, testStyle, testImage, options) {
             pngImage.copyToImageData(img, imagePixels);
             context.putImageData(img, 0, 0);
         }
+        if (options["blockhash"]) {
+            if (!img) {
+                var img = new ImageData(100, 100);
+                pngImage.copyToImageData(img, imagePixels);
+            }
+            imageHash = blockhashData(img, 100, 2);
+        }
     });
     Promise.all([p1, p2]).then(function () {
         styleCanvas = document.createElement("canvas");
@@ -82,25 +89,37 @@ function doPixelsMatch(description, testStyle, testImage, options) {
             }
             stylePixels = context.getImageData(0, 0, 100, 100).data;
             //console.log(stylePixels);
-            var mismatch = 0;
-            if (!options["mismatch"])
-                options["mismatch"] = 0;
-            if (!options["radius"])
-                options["radius"] = 0;
-            for (var j = 0; j < 100; j++)
-                for (var k = 0; k < 100; k++) {
-                    if (comparePixels(stylePixels, imagePixels, j, k, options["radius"]) > 0)
-                        mismatch++;
-                    if (mismatch > options["mismatch"]) {
-                        if (options["test"]) {
-                            options["test"].testDescriptionsUnsorted.push(description);
-                            options["test"].results.push(false);
-                            checkTestsCompletedCSS();
-                        } else
-                            console.log(description + " " + false);
-                        return;
+            if (options["blockhash"]) {
+                styleHash = blockhashData(context.getImageData(0, 0, 100, 100), 100, 2);
+                var result = !(hammingDistance(styleHash, imageHash) > options["blockhash"]);
+                if (options["test"]) {
+                    options["test"].testDescriptionsUnsorted.push(description);
+                    options["test"].results.push(result);
+                    checkTestsCompletedCSS();
+                } else
+                    console.log(description + " " + result);
+                return;
+            } else {
+                var mismatch = 0;
+                if (!options["mismatch"])
+                    options["mismatch"] = 0;
+                if (!options["radius"])
+                    options["radius"] = 0;
+                for (var j = 0; j < 100; j++)
+                    for (var k = 0; k < 100; k++) {
+                        if (comparePixels(stylePixels, imagePixels, j, k, options["radius"]) > 0)
+                            mismatch++;
+                        if (mismatch > options["mismatch"]) {
+                            if (options["test"]) {
+                                options["test"].testDescriptionsUnsorted.push(description);
+                                options["test"].results.push(false);
+                                checkTestsCompletedCSS();
+                            } else
+                                console.log(description + " " + false);
+                            return;
+                        }
                     }
-                }
+            }
             if (options["test"]) {
                 options["test"].testDescriptionsUnsorted.push(description);
                 options["test"].results.push(true);
