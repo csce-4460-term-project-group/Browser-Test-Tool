@@ -109,7 +109,7 @@
             //HTML5ImplementationTests.push(TestHTML5InputTypesImplementation());
             HTML5ImplementationTests.push(TestHTML5VideoImplementation());
             HTML5ImplementationTests.push(TestHTML5AudioImplementation());
-            Promise.all(getTestPromises(HTML5ImplementationTests)).then(function () {
+            Promise.all(getTestPromises(HTML5ImplementationTests)).finally(function () {
                 GetTestResults(HTML5ImplementationTests, "Correct Implementations", "tab-html-content-implementations", "blue");
             });
             var CSSFeatureTests = [];
