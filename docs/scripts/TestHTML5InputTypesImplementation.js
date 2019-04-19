@@ -61,13 +61,8 @@ function TestHTML5InputTypesImplementation() {
     var values = ["", "text", "", "123-456-7890", "https://github.com/", "email@github.com", "password", "2019-04-23", "2019-04", "2019-W17", "12:30:25.01", "2019-04-23T07:07", "5", "50", "#FF0000", "", "", "", "", "", "", ""];
     var shouldMatch = [false, true, true, true, true, true, false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false];
     var promises = [];
-    for (var i = 0; i < inputTypes.length; i++) {
+    for (var i = 0; i < inputTypes.length; i++)
         promises.push(doInputsMatch(inputTypes[i], "text", values[i], inputTypes[i], values[i], shouldMatch[i]));
-        var input = document.createElement("input");
-        input.setAttribute("type", inputTypes[i]);
-        input.setAttribute("value", values[i]);
-        document.body.appendChild(input);
-    }
     Promise.all(promises).then(function (test) {
         for (var i = 0; i < inputTypes.length; i++)
             for (var j = 0; j < descriptions.length; j++)
