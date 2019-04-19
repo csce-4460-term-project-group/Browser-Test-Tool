@@ -48,11 +48,11 @@ function TestHTML5InputTypesImplementation() {
             for (var j = 0; j < 100; j++)
                 for (var k = 0; k < 100; k++)
                     if (comparePixels(pixels1, pixels2, j, k, 0) > 0) {
-                        test.testDescriptionsUnsorted.push(description);
+                        test.testDescriptionsUnsorted.push("type=" + description);
                         test.results.push(false == shouldMatch);
                         return;
                     }
-            test.testDescriptionsUnsorted.push(description);
+            test.testDescriptionsUnsorted.push("type=" + description);
             test.results.push(true == shouldMatch);
         });
     };
@@ -62,7 +62,7 @@ function TestHTML5InputTypesImplementation() {
     var shouldMatch = [false, true, true, true, true, true, false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false];
     var promises = [];
     for (var i = 0; i < inputTypes.length; i++) {
-        test.testDescriptions.push(inputTypes[i]);
+        test.testDescriptions.push("type=" + inputTypes[i]);
         promises.push(doInputsMatch(test, inputTypes[i], "text", values[i], inputTypes[i], values[i], shouldMatch[i]));
     }
     test.promise = Promise.all(promises).then(function () {
