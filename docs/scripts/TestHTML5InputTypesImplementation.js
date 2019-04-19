@@ -3,8 +3,6 @@ var totalTestsHTML5InputTypes = 22, testsCompletedHTML5InputTypes = 0;
 function TestHTML5InputTypesImplementation() {
     var test = new BrowserTest();
     test.title = "Input Types";
-    var descriptions = [];
-    var results = [];
 
     var doInputsMatch = function (test, description, input1, value1, input2, value2, shouldMatch) {
         var pixels1, pixels2;
