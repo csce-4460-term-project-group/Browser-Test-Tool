@@ -1,3 +1,5 @@
+var totalTestsHTML5InputTypes = 22, testsCompletedHTML5InputTypes = 0;
+
 function TestHTML5InputTypesImplementation() {
     var test = new BrowserTest();
     test.title = "Input Types";
@@ -71,7 +73,8 @@ function TestHTML5InputTypesImplementation() {
                     test.results.push(results[j]);
                     break;
                 }
-        if (testsCompletedHTML5Video + testsCompletedHTML5Audio == totalTestsHTML5Video + totalTestsHTML5Audio)
+        testsCompletedHTML5InputTypes = totalTestsHTML5InputTypes;
+        if (testsCompletedHTML5InputTypes + testsCompletedHTML5Video + testsCompletedHTML5Audio == totalTestsHTML5InputTypes + totalTestsHTML5Video + totalTestsHTML5Audio)
             document.dispatchEvent(new Event("html-5-implementation-tests-complete"));
     }(test));
     return test;
