@@ -20,3 +20,4 @@ BrowserTest.prototype.sort = function () {
         this.results = resultsSorted;
     }
 };
+BrowserTest.prototype.promise;
