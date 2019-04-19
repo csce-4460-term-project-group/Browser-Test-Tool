@@ -17,7 +17,7 @@ function TestHTML5AudioImplementation() {
                 testsCompletedHTML5Audio++;
                 if (testsCompletedHTML5Audio == totalTestsHTML5Audio) {
                     parameters["test"].sort();
-                    if (testsCompletedHTML5Video + testsCompletedHTML5Audio == totalTestsHTML5Video + totalTestsHTML5Audio)
+                    if (testsCompletedHTML5InputTypes + testsCompletedHTML5Video + testsCompletedHTML5Audio == totalTestsHTML5InputTypes + totalTestsHTML5Video + totalTestsHTML5Audio)
                         document.dispatchEvent(new Event("html-5-implementation-tests-complete"));
                 }
             }).catch(function () {
