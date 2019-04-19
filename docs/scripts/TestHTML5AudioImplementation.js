@@ -19,6 +19,8 @@ function TestHTML5AudioImplementation() {
             }));
         }({ test: test, audio: audio, format: formats[i] }));
     }
-    test.promise = Promise.all(promises);
+    test.promise = Promise.all(promises).then(function () {
+        test.sort();
+    });
     return test;
 }

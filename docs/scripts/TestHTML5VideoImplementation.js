@@ -20,6 +20,8 @@ function TestHTML5VideoImplementation() {
             }));
         }({ test: test, video: video, format: formats[i] }));
     }
-    test.promise = Promise.all(promises);
+    test.promise = Promise.all(promises).then(function () {
+        test.sort();
+    });
     return test;
 }
