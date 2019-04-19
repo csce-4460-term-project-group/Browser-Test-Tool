@@ -104,14 +104,14 @@
             HTML5FeatureTests.push(TestHTML5Audio());
             GetTestResults(HTML5FeatureTests, "Supported Features", "tab-html-content-features", "blue");
             var HTML5ImplementationTests = [];
-            document.addEventListener("html-5-implementation-tests-complete", function () {
-                GetTestResults(HTML5ImplementationTests, "Correct Implementations", "tab-html-content-implementations", "blue");
-            });
             HTML5ImplementationTests.push(TestHTML5ElementsImplementation());
             HTML5ImplementationTests.push(TestHTML5EventHandlersImplementation());
             //HTML5ImplementationTests.push(TestHTML5InputTypesImplementation());
             HTML5ImplementationTests.push(TestHTML5VideoImplementation());
             HTML5ImplementationTests.push(TestHTML5AudioImplementation());
+            Promise.all(getTestPromises(HTML5ImplementationTests)).then(function () {
+                GetTestResults(HTML5ImplementationTests, "Correct Implementations", "tab-html-content-implementations", "blue");
+            });
             var CSSFeatureTests = [];
             CSSFeatureTests.push(TestCSSColor());
             CSSFeatureTests.push(TestCSSNamespaces());
