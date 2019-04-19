@@ -11,14 +11,13 @@ function TestHTML5VideoImplementation() {
         video.volume = 0;
         video.addEventListener("canplaythrough", function (parameters) {
             var promise = parameters["video"].play();
-            promise.then(function () {
+            promises.push(promise.then(function () {
                 parameters["test"].testDescriptionsUnsorted.push(parameters["format"]);
                 parameters["test"].results.push(true);
             }).catch(function () {
                 parameters["test"].testDescriptionsUnsorted.push(parameters["format"]);
                 parameters["test"].results.push(false);
-            });
-            promises.push(promise);
+            }));
         }({ test: test, video: video, format: formats[i] }));
     }
     test.promise = Promise.all(promises);
