@@ -106,7 +106,7 @@
             var HTML5ImplementationTests = [];
             HTML5ImplementationTests.push(TestHTML5ElementsImplementation());
             HTML5ImplementationTests.push(TestHTML5EventHandlersImplementation());
-            //HTML5ImplementationTests.push(TestHTML5InputTypesImplementation());
+            HTML5ImplementationTests.push(TestHTML5InputTypesImplementation());
             HTML5ImplementationTests.push(TestHTML5VideoImplementation());
             HTML5ImplementationTests.push(TestHTML5AudioImplementation());
             Promise.all(getTestPromises(HTML5ImplementationTests)).then(function () {

@@ -6,7 +6,7 @@ function TestHTML5InputTypesImplementation() {
     var descriptions = [];
     var results = [];
 
-    var doInputsMatch = function (description, input1, value1, input2, value2, shouldMatch) {
+    var doInputsMatch = function (test, description, input1, value1, input2, value2, shouldMatch) {
         var pixels1, pixels2;
         var canvas = document.createElement("canvas");
         var context = canvas.getContext("2d");
@@ -50,12 +50,12 @@ function TestHTML5InputTypesImplementation() {
             for (var j = 0; j < 100; j++)
                 for (var k = 0; k < 100; k++)
                     if (comparePixels(pixels1, pixels2, j, k, 0) > 0) {
-                        descriptions.push(description);
-                        results.push(false == shouldMatch);
+                        test.testDescriptionsUnsorted.push(description);
+                        test.results.push(false == shouldMatch);
                         return;
                     }
-            descriptions.push(description);
-            results.push(true == shouldMatch);
+            test.testDescriptionsUnsorted.push(description);
+            test.results.push(true == shouldMatch);
         });
     };
 
@@ -63,19 +63,12 @@ function TestHTML5InputTypesImplementation() {
     var values = ["", "text", "", "123-456-7890", "https://github.com/", "email@github.com", "password", "2019-04-23", "2019-04", "2019-W17", "12:30:25.01", "2019-04-23T07:07", "5", "50", "#FF0000", "", "", "", "", "", "", ""];
     var shouldMatch = [false, true, true, true, true, true, false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false];
     var promises = [];
-    for (var i = 0; i < inputTypes.length; i++)
-        promises.push(doInputsMatch(inputTypes[i], "text", values[i], inputTypes[i], values[i], shouldMatch[i]));
-    Promise.all(promises).then(function (test) {
-        for (var i = 0; i < inputTypes.length; i++)
-            for (var j = 0; j < descriptions.length; j++)
-                if (inputTypes[i] == descriptions[j]) {
-                    test.testDescriptions.push(descriptions[j]);
-                    test.results.push(results[j]);
-                    break;
-                }
-        testsCompletedHTML5InputTypes = totalTestsHTML5InputTypes;
-        if (testsCompletedHTML5InputTypes + testsCompletedHTML5Video + testsCompletedHTML5Audio == totalTestsHTML5InputTypes + totalTestsHTML5Video + totalTestsHTML5Audio)
-            document.dispatchEvent(new Event("html-5-implementation-tests-complete"));
-    }(test));
+    for (var i = 0; i < inputTypes.length; i++) {
+        test.testDescriptions.push(inputTypes[i]);
+        promises.push(doInputsMatch(test, inputTypes[i], "text", values[i], inputTypes[i], values[i], shouldMatch[i]));
+    }
+    test.promise = Promise.all(promises).then(function () {
+        test.sort();
+    });
     return test;
 }
