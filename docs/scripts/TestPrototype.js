@@ -21,3 +21,10 @@ BrowserTest.prototype.sort = function () {
     }
 };
 BrowserTest.prototype.promise;
+function getTestPromises(Tests) {
+    var promises = [];
+    for (var i = 0; i < Tests.length; i++)
+        if (Tests[i].promise)
+            promises.push(Tests[i].promise);
+    return promises;
+}
