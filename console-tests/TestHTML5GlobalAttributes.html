@@ -14,9 +14,8 @@ function myFunction() { //counts how many attributes are supported, prints that 
     var numberOfSupportedAttributes = 0;
 
     for (var i = 0; i < arrayOfAttributes.length; i++) {
-        var myElem = document.createElement("a");
 
-        if ((arrayOfAttributes[i]) in myElem) {
+        if ((arrayOfAttributes[i]) in HTMLElement.prototype) {
             numberOfSupportedAttributes++;
         }
 
