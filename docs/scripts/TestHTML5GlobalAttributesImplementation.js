@@ -102,6 +102,7 @@ function TestHTML5GlobalAttributesImplementation() {
 
     var testAccessKey = function (resolve, reject) {
         var div = document.createElement("div");
+        div.style.backgroundColor = "#FFFFFF";
         addText("Chrome or Edge: Press [Alt] + [Z]", div);
         addText("Firefox: Press [Alt] + [Shift] + [Z]", div);
         addText("Mac: Press [Control] + [Alt] + [Z]", div);
@@ -119,6 +120,7 @@ function TestHTML5GlobalAttributesImplementation() {
 
     var testContentEditable = function (resolve, reject) {
         var div = document.createElement("div");
+        div.style.backgroundColor = "#FFFFFF";
         addText("Change the text.", div);
         var divText = document.createElement("div");
         divText.style.width = "100px";
@@ -141,6 +143,7 @@ function TestHTML5GlobalAttributesImplementation() {
 
     var testDraggable = function (resolve, reject) {
         var div = document.createElement("div");
+        div.style.backgroundColor = "#FFFFFF";
         addText("Is the red square draggable?", div);
         var divRed = document.createElement("div");
         divRed.style.width = "100px";
@@ -161,6 +164,7 @@ function TestHTML5GlobalAttributesImplementation() {
 
     var testSpellcheck = function (resolve, reject) {
         var div = document.createElement("div");
+        div.style.backgroundColor = "#FFFFFF";
         addText("Use the browser's spellcheck to correct the words.", div);
         var input = document.createElement("input");
         input.value = "compputer refridgerator";
@@ -180,6 +184,7 @@ function TestHTML5GlobalAttributesImplementation() {
 
     var testTabIndex = function (resolve, reject) {
         var div = document.createElement("div");
+        div.style.backgroundColor = "#FFFFFF";
         addText("Press [tab] 4 times. Type in the number that is in focus or 0 if none are focused.", div);
         var button1 = document.createElement("div");
         button1.textContent = "1";
@@ -215,6 +220,7 @@ function TestHTML5GlobalAttributesImplementation() {
 
     var testTitle = function (resolve, reject) {
         var div = document.createElement("div");
+        div.style.backgroundColor = "#FFFFFF";
         addText("Hover over the green square. What does the tooltip say?", div);
         var divGreen = document.createElement("div");
         divGreen.style.width = "100px";
@@ -238,6 +244,7 @@ function TestHTML5GlobalAttributesImplementation() {
 
     var testTranslate = function (resolve, reject) {
         var div = document.createElement("div");
+        div.style.backgroundColor = "#FFFFFF";
         div.lang = "de";
         div.translate = "yes";
         addText("Translate this excerpt (Das Märchen by Johann Wolfgang von Goethe) into English.", div);
