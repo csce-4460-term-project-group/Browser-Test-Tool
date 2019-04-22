@@ -265,25 +265,26 @@ function TestHTML5GlobalAttributesImplementation() {
     var globalAttributes = ["accesskey", "contenteditable", "draggable", "spellcheck", "tabindex", "title", "translate"];
     var globalAttributes2 = ["class", "dir", "hidden", "id", "lang", "style"];
 
-    var testGlobalAttribute = function (i) {
-        if (i == tests.length) {
-            console.log("Tests Complete");
-            return;
+    promises.push(new Promise(function (resolve) {
+        var testGlobalAttribute = function (i) {
+            if (i == tests.length) {
+                resolve();
+                return;
+            }
+            new Promise(tests[i]).then(function (div) {
+                test.testDescriptionsUnsorted.push(globalAttributes[i]);
+                test.results.push(true);
+                document.body.removeChild(div);
+                testGlobalAttribute(i + 1);
+            }).catch(function (div) {
+                test.testDescriptionsUnsorted.push(globalAttributes[i]);
+                test.results.push(false);
+                document.body.removeChild(div);
+                testGlobalAttribute(i + 1);
+            });
         }
-        promises.push(new Promise(tests[i]).then(function (div) {
-            test.testDescriptionsUnsorted.push(globalAttributes[i]);
-            test.results.push(true);
-            document.body.removeChild(div);
-            testGlobalAttribute(i + 1);
-        }).catch(function (div) {
-            test.testDescriptionsUnsorted.push(globalAttributes[i]);
-            test.results.push(false);
-            document.body.removeChild(div);
-            testGlobalAttribute(i + 1);
-        }));
-    }
-
-    testGlobalAttribute(0);
+        testGlobalAttribute(0);
+    }));
 
     for (var i = 0; i < globalAttributes2.length; i++)
         doPixelsMatch(globalAttributes2[i], globalAttributes2[i], globalAttributes2[i], { test: test });
