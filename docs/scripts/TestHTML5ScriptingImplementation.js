@@ -3,8 +3,8 @@ function TestHTML5ScriptingImplementation() {
     test.title = "Scripting";
     var testScript = function (test, description, script) {
         try {
-            var promise = new Function("description", "return new Promise(function (resolve, reject) { " + script + " }).then(function () { test.testDescriptionsUnsorted(description); test.results(true); }).catch(function () { test.testDescriptionsUnsorted(description); test.results(false); });");
-            return promise(description);
+            var promise = new Function("test", "description", "return new Promise(function (resolve, reject) { " + script + " }).then(function () { test.testDescriptionsUnsorted(description); test.results(true); }).catch(function () { test.testDescriptionsUnsorted(description); test.results(false); });");
+            return promise(test, description);
         } catch (e) {
             test.testDescriptionsUnsorted(description);
             test.results(false);
