@@ -42,6 +42,7 @@
     <script src="/Browser-Test-Tool/scripts/TestHTML5Video.js"></script>
     <script src="/Browser-Test-Tool/scripts/TestHTML5Audio.js"></script>
     <script src="/Browser-Test-Tool/scripts/TestHTML5ElementsImplementation.js"></script>
+    <script src="/Browser-Test-Tool/scripts/TestHTML5GlobalAttributesImplementation.js"></script>
     <script src="/Browser-Test-Tool/scripts/TestHTML5EventHandlersImplementation.js"></script>
     <script src="/Browser-Test-Tool/scripts/TestHTML5InputTypesImplementation.js"></script>
     <script src="/Browser-Test-Tool/scripts/TestHTML5VideoImplementation.js"></script>
@@ -105,6 +106,7 @@
             GetTestResults(HTML5FeatureTests, "Supported Features", "tab-html-content-features", "blue");
             var HTML5ImplementationTests = [];
             HTML5ImplementationTests.push(TestHTML5ElementsImplementation());
+            HTML5ImplementationTests.push(TestHTML5GlobalAttributesImplementation());
             HTML5ImplementationTests.push(TestHTML5EventHandlersImplementation());
             HTML5ImplementationTests.push(TestHTML5InputTypesImplementation());
             HTML5ImplementationTests.push(TestHTML5VideoImplementation());
