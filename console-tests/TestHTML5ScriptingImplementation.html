@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-
+ï»¿<!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
@@ -24,30 +23,94 @@
             }
         }
 
-        var descriptions = ["ECMAScript 2016: Array.prototype.includes()", "ECMAScript 2016: Exponentiation Operator (**)",
-            "ECMAScript 2017: Async Functions", "ECMAScript 2017: Object.entries()", "ECMAScript 2017: Object.getOwnPropertyDescriptors()", "ECMAScript 2017: Object.values()", "ECMAScript 2017: String Padding", "ECMAScript 2017: Trailing Commas in Function Parameter",
-            "ECMAScript 2018: Asynchronous Iteration", "ECMAScript 2018: Object Rest/Spread Properties", "ECMAScript 2018: Promise.prototype.finally()",
-            "ECMAScript 2018: RegExp Lookbehind Assertions", "ECMAScript 2018: RegExp Named Capture Groups", "ECMAScript 2018: RegExp s (dotAll) Flag", "ECMAScript 2018: RegExp Unicode Property Escapes", "ECMAScript 2018: Template Literal Revision"];
+        async function testAsync(ID) {
+            var id = ID;
+            const promises = [
+                new Promise(resolve => resolve(1)),
+                new Promise(resolve => resolve(2)),
+            ];
+
+            if (id == '8') {
+                for await (let n of promises) {
+                    if (n == '1, 2') { return true; } else { return false; }
+                }
+            }
+            async function myFunc() {
+                var str = await getString();
+                var num = await getNum(str);
+                return num;
+            }
+
+            myFunc().then(function (value) {
+                if (value == 5) { return true; }
+                else { return false; }
+            });
+
+            function getString() {
+                return new Promise(resolve => {
+                    setTimeout(() => {
+                        resolve('foo');
+                    }, 1000);
+                });
+            }
+
+            function getNum(str) {
+                return new Promise((resolve, reject) => {
+                    setTimeout(() => {
+                        if (str == 'foo') {
+                            resolve('5');
+                        } else {
+                            reject('fail');
+                        }
+                    }, 1000);
+                });
+            }
+        }
+
+        var descriptions = ["ECMAScript 2016:ï¿½Array.prototype.includes()", "ECMAScript 2016: Exponentiation Operator (**)",
+            "ECMAScript 2017: Async Functions", "ECMAScript 2017:ï¿½Object.entries()", "ECMAScript 2017:ï¿½Object.getOwnPropertyDescriptors()", "ECMAScript 2017:ï¿½Object.values()", "ECMAScript 2017: String Padding", "ECMAScript 2017: Trailing Commas in Function Parameter",
+            "ECMAScript 2018:ï¿½Asynchronous Iteration", "ECMAScript 2018: Object Rest/Spread Properties", "ECMAScript 2018:ï¿½Promise.prototype.finally()",
+            "ECMAScript 2018:ï¿½RegExp Lookbehind Assertions", "ECMAScript 2018:ï¿½RegExp Named Capture Groups", "ECMAScript 2018: RegExpï¿½s (dotAll) Flag", "ECMAScript 2018:ï¿½RegExp Unicode Property Escapes", "ECMAScript 2018:ï¿½Template Literal Revision"];
+
         var scripts = ["var a = [1, 2, 3]; return a.includes(3);",//Array.prototype.includes()
             "var a = 5**5; if(a == 3125){return true;} else{return false;}",//Exponentiation Operator (**)
             " ",//async function
             "const objs = { A: 1, B: 2 }; const v = Object.entries(objs)[1]; if(v == 'B,2'){return true;} else{return false;}",//object.entries()
-            " ",//Object.getOwnPropertyDescriptors()
+            "var obj ={property: 0, set prop(x){this.d=x;}, get prop(){return this.d;}}; obj.prop = 20; const obj2 = Object.defineProperties({}, Object.getOwnPropertyDescriptors(obj)); var o = Object.getOwnPropertyDescriptors(obj); var d = Object.getOwnPropertyDescriptors(obj2); o.prop.set(30); d.prop.set(30); if(o.prop.get() == d.prop.get()){return true;} else{return false;}",//Object.getOwnPropertyDescriptors()
             "const objs = { A: 1, B: 2 }; const v = Object.values(objs); if(v == '1,2'){return true;} else{return false;}",//Object.values()
-            " ",//String Padding
-            " ",//Trailing Commas in Function Parameter
+            "var st = '1'; var padSt = st.padStart(5, '*'); var padEn = st.padEnd(5, '*'); if (padSt == '****1' && padEn == '1****'){return true;} else{return false;}",//String Padding
+            "function myFunc(a, b,){return (a+b);} var c = 2; var d = 3; if(myFunc(c,d) == '5'){return true;} else{return false;}",//Trailing Commas in Function Parameter
             " ",//Asynchronous Iteration
-            " ",//Object Rest/Spread Properties
+            "let { a, b, ...remain } = { a: 'A', b: 'B', c: 'C', }; const foo1 = { d: 'D' }; const foo2 = { e: 'E' }; const both = { ...foo1, ...foo2 }; if (remain.c == 'C' && both.d == 'D' && both.e == 'E') { return true; } else { return false; }",//Object Rest/Spread Properties
             " ",//Promise.prototype.finally()
             " ",//RegExp Lookbehind Assertions
             " ",//RegExp Named Capture Groups
-            " ",//RegExp s (dotAll) Flag
+            " ",//RegExpï¿½s (dotAll) Flag
             " ",//RegExp Unicode Property Escapes
-            " ",//Template Literal Revision
+            " "//Template Literal Revision
         ];
 
         //for descriptions.length
-        console.log(descriptions[3] + " " + testScriptImp(scripts[3]));
+        //for (var i = 0; i < descriptions.length; i++)
+            //if(i == 2 || 8)//async test
+        /*
+        try {
+            testAsync('8');
+        } catch (e) {
+            console.log("This browser does not support ");
+            console.log(descriptions[8] + " " + false);
+        }
+        if (testAsync('8')) {
+            console.log(descriptions[8] + " " + true);
+        }
+        else {
+            console.log(descriptions[8] + " " + false);
+        }
+        */
+        
+            //console.log(descriptions[i] + " " + testScriptImp(scripts[i]));
+            //else
+        console.log(descriptions[9] + " " + testScriptImp(scripts[9]));
 
 
     </script>
