@@ -113,6 +113,9 @@
             HTML5ImplementationTests.push(TestHTML5AudioImplementation());
             Promise.all(getTestPromises(HTML5ImplementationTests)).then(function () {
                 GetTestResults(HTML5ImplementationTests, "Correct Implementations", "tab-html-content-implementations", "blue");
+                document.getElementById("tab-html-button").style.display = "inline";
+                document.getElementById("tab-css-button").style.display = "inline";
+                document.getElementById("tab-html-content").style.display = "block";
             });
             var CSSFeatureTests = [];
             CSSFeatureTests.push(TestCSSColor());
@@ -126,9 +129,6 @@
             CSSFeatureTests.push(TestCSSFonts());
             CSSFeatureTests.push(TestCSSBasicUserInterface());
             GetTestResults(CSSFeatureTests, "Supported Features", "tab-css-content-features", "green");
-            document.getElementById("tab-html-button").style.display = "inline";
-            document.getElementById("tab-css-button").style.display = "inline";
-            document.getElementById("tab-html-content").style.display = "block";
         }
     </script>
 </body>
