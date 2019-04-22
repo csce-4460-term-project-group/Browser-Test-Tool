@@ -45,6 +45,7 @@
     <script src="/Browser-Test-Tool/scripts/TestHTML5GlobalAttributesImplementation.js"></script>
     <script src="/Browser-Test-Tool/scripts/TestHTML5EventHandlersImplementation.js"></script>
     <script src="/Browser-Test-Tool/scripts/TestHTML5InputTypesImplementation.js"></script>
+    <script src="/Browser-Test-Tool/scripts/TestHTML5ScriptingImplementation.js"></script>
     <script src="/Browser-Test-Tool/scripts/TestHTML5VideoImplementation.js"></script>
     <script src="/Browser-Test-Tool/scripts/TestHTML5AudioImplementation.js"></script>
     <script src="/Browser-Test-Tool/scripts/TestCSSColor.js"></script>
@@ -109,6 +110,7 @@
             HTML5ImplementationTests.push(TestHTML5GlobalAttributesImplementation());
             HTML5ImplementationTests.push(TestHTML5EventHandlersImplementation());
             HTML5ImplementationTests.push(TestHTML5InputTypesImplementation());
+            HTML5ImplementationTests.push(TestHTML5ScriptingImplementation());
             HTML5ImplementationTests.push(TestHTML5VideoImplementation());
             HTML5ImplementationTests.push(TestHTML5AudioImplementation());
             Promise.all(getTestPromises(HTML5ImplementationTests)).then(function () {
