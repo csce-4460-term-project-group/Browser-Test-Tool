@@ -3,11 +3,11 @@ function TestHTML5ScriptingImplementation() {
     test.title = "Scripting";
     var testScript = function (test, description, script) {
         try {
-            var promise = new Function("test", "description", "return new Promise(function (resolve, reject) { " + script + " }).then(function () { test.testDescriptionsUnsorted(description); test.results(true); }).catch(function () { test.testDescriptionsUnsorted(description); test.results(false); });");
+            var promise = new Function("test", "description", "return new Promise(function (resolve, reject) { " + script + " }).then(function () { test.testDescriptionsUnsorted.push(description); test.results.push(true); }).catch(function () { test.testDescriptionsUnsorted.push(description); test.results.push(false); });");
             return promise(test, description);
         } catch (e) {
-            test.testDescriptionsUnsorted(description);
-            test.results(false);
+            test.testDescriptionsUnsorted.push(description);
+            test.results.push(false);
         }
     }
     var descriptions = ["ECMAScript 2016: Array.prototype.includes()", "ECMAScript 2016: Exponentiation Operator (**)",
