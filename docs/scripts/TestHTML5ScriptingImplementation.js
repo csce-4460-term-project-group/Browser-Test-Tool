@@ -1,10 +1,10 @@
 function TestHTML5ScriptingImplementation() {
     var test = new BrowserTest();
     test.title = "Scripting";
-    var testScript = function (description, script) {
+    var testScript = function (test, description, script) {
         try {
-            var promise = new Function("return new Promise(function (resolve, reject) { " + script + " });");
-            return promise().then(function () { test.testDescriptionsUnsorted.push(description); test.results.push(true); }).catch(function () { test.testDescriptionsUnsorted.push(description); test.results.push(false); });
+            var promise = new Function("test", "description", "return new Promise(function (resolve, reject) { " + script + " }).then(function () { test.testDescriptionsUnsorted.push(description); test.results.push(true); }).catch(function () { test.testDescriptionsUnsorted.push(description); test.results.push(false); });");
+            return promise(test, description);
         } catch (e) {
             test.testDescriptionsUnsorted.push(description);
             test.results.push(false);
@@ -33,7 +33,7 @@ function TestHTML5ScriptingImplementation() {
     ];
     var promises = [];
     for (var i = 0; i < descriptions.length; i++)
-        promises.push(testScript(descriptions[i], scripts[i]));
+        promises.push(testScript(test, descriptions[i], scripts[i]));
     test.promise = Promise.all(promises).then(function () {
         test.sort();
     });
