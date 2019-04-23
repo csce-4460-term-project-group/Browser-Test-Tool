@@ -32,8 +32,10 @@ function TestHTML5ScriptingImplementation() {
         "function tag(str) { return { cooked: str[0], raw: str.raw[0] }; } if (tag`\\unicode`.cooked == null) resolve(); else reject();"//Template Literal Revision
     ];
     var promises = [];
-    for (var i = 0; i < descriptions.length; i++)
+    for (var i = 0; i < descriptions.length; i++) {
+        test.testDescriptions.push(descriptions[i]);
         promises.push(testScript(test, descriptions[i], scripts[i]));
+    }
     test.promise = Promise.all(promises).then(function () {
         test.sort();
     });
